@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- صفحه اصلی -->
+    <url>
+        <loc>https://yourwebsite.com/</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- صفحه محصولات -->
+    <url>
+        <loc>https://yourwebsite.com/product</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- نمونه محصول 1 -->
+    <url>
+        <loc>https://yourwebsite.com/product/forever-aloe-vera-gel</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- نمونه محصول 2 -->
+    <url>
+        <loc>https://yourwebsite.com/product/forever-aloe-berry-nectar</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ادامه تمامی محصولات -->
+    <url>
+        <loc>https://yourwebsite.com/product/forever-bright-toothgel</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://yourwebsite.com/product/aloe-vera-gelly</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://yourwebsite.com/product/forever-aloe-lips</loc>
+        <lastmod>2025-10-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- ادامه برای تمام محصولات موجود در JSON-LD -->
+
+</urlset>
