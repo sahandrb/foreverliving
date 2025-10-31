@@ -146,6 +146,28 @@ body {
     margin-bottom: 20px;
 }
 
+  .price-table {
+    max-width: 1000px;
+    margin: auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  .price-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .price-table th, .price-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  .price-table th {
+    background: #f4f4f4;
+  }
+  .price-note {
+    font-size: 0.9em;
+    color: #555;
+  }
 
 /* --- Responsive (Extra Safety) --- */
 @media (min-width: 600px) {
@@ -208,7 +230,7 @@ body {
               <p>نمایندگان ما برای آموزش حضوری به محل شما مراجعه می‌کنند و تمام نکات لازم برای فروش و معرفی محصولات فوراور را به صورت عملی آموزش می‌دهند. همچنین امکان دریافت آموزش‌ها به صورت مجازی نیز وجود دارد تا حتی از راه دور بتوانید با اطمینان فعالیت خود را آغاز کنید.</p>
               <p>برای کسب اطلاعات دقیق‌تر و آگاهی از مراحل دریافت نمایندگی فوراور، کافی است با ما تماس بگیرید تا تیم کارشناسان ما شما را راهنمایی کنند و پاسخگوی تمامی سوالاتتان باشند.</p>
              </div>
-
+              
 
 
             <p class="product__cta-text">همین حالا برای دریافت مشاوره تخصصی و تجربه‌ای متفاوت از سلامت و زیبایی، با کارشناسان ما تماس بگیرید.</p>
@@ -225,7 +247,24 @@ body {
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<section id="price-list" class="price-table">
+  <h2>لیست قیمت محصولات فوراور</h2>
+  <p class="price-note">قیمت‌ها به‌صورت روزانه براساس نرخ درهم به‌روزرسانی می‌شوند.</p>
 
+  <table>
+    <thead>
+      <tr>
+        <th>کد</th>
+        <th>نام محصول</th>
+        <th>کاربرد</th>
+        <th>وزن (kg)</th>
+        <th>قیمت (تومان)</th>
+        <th>قیمت (درهم)</th>
+      </tr>
+    </thead>
+    <tbody id="product-table-body"></tbody>
+  </table>
+</section>
    
 <script>
    
@@ -326,12 +365,884 @@ body {
 
   ]
 }
+     const exchangeRate = 29700; // نرخ درهم → می‌توان بعداً تغییر داد
+  const products = [
+   [
+  {
+    "code": "015",
+    "name_en": "Aloe Vera Gel",
+    "name_fa": "نوشیدنی ژل خالص آلوئه ورا",
+    "weight": 0.113,
+    "price_toman": 3670127,
+    "price_aed": 123.52,
+    "description": "مناسب برای پاکسازی بدن و تقویت سیستم ایمنی"
+  },
+  {
+    "code": "022",
+    "name_en": "Aloe Lips",
+    "name_fa": "لیپس",
+    "weight": 0.016,
+    "price_toman": 524440,
+    "price_aed": 17.67,
+    "description": "مرطوب‌کننده و محافظت از لب‌ها"
+  },
+  {
+    "code": "026",
+    "name_en": "Forever Bee Pollen (100 tablet)",
+    "name_fa": "بی پولن",
+    "weight": 0.068,
+    "price_toman": 2216672,
+    "price_aed": 74.72,
+    "description": "تقویت سیستم ایمنی و انرژی بدن"
+  },
+  {
+    "code": "027",
+    "name_en": "Forever Bee Propolis (60 tablet)",
+    "name_fa": "بی پروپلیس",
+    "weight": 0.143,
+    "price_toman": 4630469,
+    "price_aed": 155.81,
+    "description": "حمایت از سلامت بدن و ضد التهاب طبیعی"
+  },
+  {
+    "code": "028",
+    "name_en": "Forever Bright Toothgel",
+    "name_fa": "خمیر دندان فوراور",
+    "weight": 0.035,
+    "price_toman": 1115607,
+    "price_aed": 37.57,
+    "description": "مناسب برای سلامت لثه‌ها و سفید کنندگی دندان‌ها"
+  },
+  {
+    "code": "032",
+    "name_en": "DREAM BY FOREVER",
+    "name_fa": "اسپری بدن زنانه دریم",
+    "weight": 0.026,
+    "price_toman": 852733,
+    "price_aed": 28.71,
+    "description": "اسپری خوشبو و مرطوب‌کننده بدن"
+  },
+  {
+    "code": "033",
+    "name_en": "DESIRE BY FOREVER",
+    "name_fa": "اسپری بدن مردانه دزایر",
+    "weight": 0.026,
+    "price_toman": 852733,
+    "price_aed": 28.71,
+    "description": "اسپری خوشبو و انرژی‌بخش برای آقایان"
+  },
+  {
+    "code": "034",
+    "name_en": "Aloe Berry Nectar",
+    "name_fa": "نکتار بری",
+    "weight": 0.113,
+    "price_toman": 3670389,
+    "price_aed": 123.53,
+    "description": "مناسب برای گوارش و افزایش انرژی"
+  },
+  {
+    "code": "036",
+    "name_en": "Forever Royal Jelly (60 tablet)",
+    "name_fa": "رویال ژلی",
+    "weight": 0.148,
+    "price_toman": 4785996,
+    "price_aed": 161.13,
+    "description": "تقویت قوای عمومی و انرژی بدن"
+  },
+  {
+    "code": "037",
+    "name_en": "Nature-Min",
+    "name_fa": "نیچرمین املاح معدنی",
+    "weight": 0.081,
+    "price_toman": 2633957,
+    "price_aed": 88.77,
+    "description": "مکمل تامین املاح معدنی مورد نیاز بدن"
+  }
+]
+[
+  {
+    "code": "040",
+    "name_en": "Aloe First Spray",
+    "name_fa": "فرست اسپری",
+    "weight": 0.089,
+    "price_toman": 2877416,
+    "price_aed": 96.91,
+    "description": "اسپری ضد التهاب و آرام‌بخش پوست"
+  },
+  {
+    "code": "048",
+    "name_en": "Forever Absorbent-C (100 tablet)",
+    "name_fa": "فوراور ویتامین سی و جو دوسر",
+    "weight": 0.079,
+    "price_toman": 2458101,
+    "price_aed": 82.77,
+    "description": "تقویت سیستم ایمنی و افزایش انرژی"
+  },
+  {
+    "code": "051",
+    "name_en": "Aloe Propolis Creme",
+    "name_fa": "پروپلیس کرم",
+    "weight": 0.089,
+    "price_toman": 2877416,
+    "price_aed": 96.91,
+    "description": "مناسب برای ترمیم و مراقبت از پوست"
+  },
+  {
+    "code": "061",
+    "name_en": "Aloe Vera Gelly",
+    "name_fa": "آلوئه ورا ژلی",
+    "weight": 0.067,
+    "price_toman": 2161120,
+    "price_aed": 72.75,
+    "description": "آرام‌بخش و ترمیم‌کننده پوست"
+  },
+  {
+    "code": "063",
+    "name_en": "Aloe Moisturising Lotion",
+    "name_fa": "مویسچرایزینگ-مرطوب کننده",
+    "weight": 0.067,
+    "price_toman": 2161120,
+    "price_aed": 72.75,
+    "description": "مرطوب‌کننده و تغذیه‌کننده پوست"
+  },
+  {
+    "code": "064",
+    "name_en": "Aloe Heat Lotion",
+    "name_fa": "آلوئه هیت لوشن",
+    "weight": 0.067,
+    "price_toman": 2161120,
+    "price_aed": 72.75,
+    "description": "کرم ماساژ برای تسکین درد عضلات"
+  },
+  {
+    "code": "065",
+    "name_en": "Garlic Thyme",
+    "name_fa": "گارلیک تایم سیر و آویشن",
+    "weight": 0.081,
+    "price_toman": 2633994,
+    "price_aed": 88.77,
+    "description": "مکمل گیاهی برای بهبود ایمنی و گوارش"
+  },
+  {
+    "code": "067",
+    "name_en": "Forever Evershield",
+    "name_fa": "مام فوراور",
+    "weight": 0.035,
+    "price_toman": 1216397,
+    "price_aed": 40.92,
+    "description": "دئودورانت بدون آلومینیوم و ضد حساسیت"
+  },
+  {
+    "code": "068L",
+    "name_en": "Fields Of Greens (80 tablet)",
+    "name_fa": "فیلدز او گرینز مکمل سبزیجات",
+    "weight": 0.054,
+    "price_toman": 1743971,
+    "price_aed": 58.70,
+    "description": "مکمل سبزیجات و تامین ویتامین‌های روزانه"
+  },
+  {
+    "code": "069",
+    "name_en": "R-3 Factor",
+    "name_fa": "کرم آر تری فکتور-ترمیم و نوسازی پوست",
+    "weight": 0.148,
+    "price_toman": 4785996,
+    "price_aed": 161.13,
+    "description": "ترمیم و بازسازی سلول‌های پوستی"
+  },
+  {
+    "code": "071L",
+    "name_en": "Garcinia Plus",
+    "name_fa": "فوراور گارسینیا پلاس-مکمل کاهش اشتها",
+    "weight": 0.148,
+    "price_toman": 4795077,
+    "price_aed": 161.51,
+    "description": "مکمل کاهش اشتها و کمک به کنترل وزن"
+  },
+  {
+    "code": "075",
+    "name_en": "Nutrition Mini Combo",
+    "name_fa": "تغذیه ترکیبی کوچک",
+    "weight": 1,
+    "price_toman": 31234483,
+    "price_aed": 1052.62,
+    "description": "پکیج تغذیه کامل و متعادل برای روزانه"
+  },
+  {
+    "code": "076",
+    "name_en": "Skin Care Mini Combo",
+    "name_fa": "پک مراقبت از پوست",
+    "weight": 1,
+    "price_toman": 31234483,
+    "price_aed": 1052.62,
+    "description": "پکیج مراقبت از پوست شامل ژل و لوشن"
+  },
+  {
+    "code": "082",
+    "name_en": "FOREVER BHRINGRAJ HAIR OIL",
+    "name_fa": "روغن موی بهرینگراج",
+    "weight": 0.05,
+    "price_toman": 1619697,
+    "price_aed": 54.53,
+    "description": "مناسب برای تقویت و رشد مو"
+  },
+  {
+    "code": "187",
+    "name_en": "Alpha E Factor",
+    "name_fa": "آلفا-ای فاکتور-ترمیم کننده و ضد چروک پوست",
+    "weight": 0.148,
+    "price_toman": 4785996,
+    "price_aed": 161.13,
+    "description": "ضد چروک و ترمیم کننده پوست"
+  },
+  {
+    "code": "188",
+    "name_en": "Forever B 12 Plus (60 tablet)",
+    "name_fa": "بی 12 پلاس",
+    "weight": 0.069,
+    "price_toman": 2237471,
+    "price_aed": 75.33,
+    "description": "تقویت سیستم عصبی و افزایش انرژی"
+  },
+  {
+    "code": "196",
+    "name_en": "Forever Freedom",
+    "name_fa": "نوشیدنی فریدام",
+    "weight": 0.162,
+    "price_toman": 5240995,
+    "price_aed": 176.49,
+    "description": "نوشیدنی انرژی‌بخش و تقویت ایمنی"
+  },
+  {
+    "code": "200",
+    "name_en": "Aloe Blossom Herbal Tea (25 poset)",
+    "name_fa": "چای گیاهی آلوئه ورا-دمنوش شکوفه آلوئه ورا",
+    "weight": 0.079,
+    "price_toman": 2458101,
+    "price_aed": 82.77,
+    "description": "دمنوش آرام‌بخش و تقویت کننده سیستم گوارش"
+  },
+  {
+    "code": "205",
+    "name_en": "Aloe Msm Gel",
+    "name_fa": "آلو ام اس ام ژل",
+    "weight": 0.109,
+    "price_toman": 3517299,
+    "price_aed": 118.46,
+    "description": "ترمیم مفاصل و آرام‌بخش پوست"
+  },
+  {
+    "code": "206L",
+    "name_en": "Forever Calcium",
+    "name_fa": "کلسیم دی",
+    "weight": 0.109,
+    "price_toman": 3517923,
+    "price_aed": 118.48,
+    "description": "مکمل کلسیم و تقویت استخوان‌ها"
+  }
+]
+[
+  {
+    "code": "207",
+    "name_en": "Forever Bee Honey",
+    "name_fa": "عسل",
+    "weight": 0.075,
+    "price_toman": 2458966,
+    "price_aed": 82.78,
+    "description": "عسل خالص طبیعی فوراور"
+  },
+  {
+    "code": "215L",
+    "name_en": "Forever Multi Maca",
+    "name_fa": "فوراور مولتی ماکا",
+    "weight": 0.118,
+    "price_toman": 3825766,
+    "price_aed": 128.85,
+    "description": "مکمل تقویت انرژی و سلامت عمومی (تمام شد)"
+  },
+  {
+    "code": "234",
+    "name_en": "Forever Marine Mask",
+    "name_fa": "فوراور مارین ماسک-ماسک دریایی",
+    "weight": 0.101,
+    "price_toman": 3148963,
+    "price_aed": 105.96,
+    "description": "ماسک تغذیه‌کننده و مرطوب‌کننده پوست"
+  },
+  {
+    "code": "238",
+    "name_en": "Aloe Scrub",
+    "name_fa": "آلوئه اسکراب",
+    "weight": 0.07,
+    "price_toman": 2275647,
+    "price_aed": 76.64,
+    "description": "اسکراب ملایم و لایه‌بردار پوست"
+  },
+  {
+    "code": "284",
+    "name_en": "Avacado Face & Body Soap",
+    "name_fa": "صابون صورت و بدن آواکادو+آلوئه ورا",
+    "weight": 0.034,
+    "price_toman": 1101943,
+    "price_aed": 37.09,
+    "description": "صابون مغذی و نرم‌کننده پوست"
+  },
+  {
+    "code": "289",
+    "name_en": "Forever Lean",
+    "name_fa": "فوراور لین-مکمل کاهش جذب کالری",
+    "weight": 0.208,
+    "price_toman": 6735171,
+    "price_aed": 226.71,
+    "description": "کمک به کنترل وزن و کاهش جذب کالری"
+  },
+  {
+    "code": "307",
+    "name_en": "Forever Aloe MPD 2X",
+    "name_fa": "ام پی دی -شوینده چند منظوره",
+    "weight": 0.109,
+    "price_toman": 3392559,
+    "price_aed": 114.25,
+    "description": "شوینده چند منظوره با عصاره آلوئه"
+  },
+  {
+    "code": "312",
+    "name_en": "Forever CardioHealth",
+    "name_fa": "فوراور کاردیو هلث-مکمل سلامت قلب با کو آنزیم کیو ۱۰",
+    "weight": 0.15,
+    "price_toman": 4690068,
+    "price_aed": 157.88,
+    "description": "مکمل حمایت از سلامت قلب و گردش خون"
+  },
+  {
+    "code": "318",
+    "name_en": "Hand Sanitizer",
+    "name_fa": "ضد عفونی کننده دست",
+    "weight": 0.02,
+    "price_toman": 655968,
+    "price_aed": 22.08,
+    "description": "ضدعفونی‌کننده سریع و ایمن برای دست‌ها"
+  },
+  {
+    "code": "341",
+    "name_en": "Mask powder",
+    "name_fa": "پودر ماسک",
+    "weight": 0.095,
+    "price_toman": 3071281,
+    "price_aed": 103.45,
+    "description": "ماسک صورت تغذیه‌کننده (تمام شد)"
+  },
+  {
+    "code": "354L",
+    "name_en": "Forever Kids",
+    "name_fa": "فوراور کیدز",
+    "weight": 0.068,
+    "price_toman": 2190539,
+    "price_aed": 73.74,
+    "description": "مکمل ویتامینی برای کودکان"
+  },
+  {
+    "code": "355L",
+    "name_en": "Forever Immublend",
+    "name_fa": "فوراور ایموبلند",
+    "weight": 0.118,
+    "price_toman": 3824269,
+    "price_aed": 128.81,
+    "description": "تقویت سیستم ایمنی بدن"
+  },
+  {
+    "code": "374L",
+    "name_en": "Vitolize-Men",
+    "name_fa": "ویتولایز آقایان",
+    "weight": 0.136,
+    "price_toman": 4535630,
+    "price_aed": 152.81,
+    "description": "مکمل سلامت آقایان (تمام شد)"
+  },
+  {
+    "code": "375L",
+    "name_en": "Vitolize-Women",
+    "name_fa": "ویتولایز بانوان",
+    "weight": 0.143,
+    "price_toman": 5481545,
+    "price_aed": 184.54,
+    "description": "مکمل سلامت بانوان (تمام شد)"
+  },
+  {
+    "code": "376L",
+    "name_en": "Forever Arctic Sea",
+    "name_fa": "فوراور امگا 3",
+    "weight": 0.143,
+    "price_toman": 4783787,
+    "price_aed": 161.10,
+    "description": "مکمل امگا ۳ و سلامت قلب"
+  },
+  {
+    "code": "439",
+    "name_en": "Forever Daily",
+    "name_fa": "فوراور دیلی",
+    "weight": 0.09,
+    "price_toman": 2820839,
+    "price_aed": 95.01,
+    "description": "مکمل ویتامینی روزانه (تمام شد)"
+  }
+]
+[
+  {
+    "code": "456",
+    "name_en": "VITAL5/ALOE VERA GEL",
+    "name_fa": "بسته حیاتی ویتال 5 با نوشیدنی خالص آلوئه ورا",
+    "weight": 1.148,
+    "price_toman": 35867784,
+    "price_aed": 1207.44,
+    "description": "بسته ترکیبی ویتامین‌ها و نوشیدنی آلوئه ورا"
+  },
+  {
+    "code": "459",
+    "name_en": "VITAL5/FOREVER FREEDOM",
+    "name_fa": "بسته حیاتی ویتال 5 با نوشیدنی فریدام",
+    "weight": 1.34,
+    "price_toman": 41857238,
+    "price_aed": 1409.41,
+    "description": "بسته ترکیبی ویتامین‌ها و نوشیدنی فریدام"
+  },
+  {
+    "code": "463",
+    "name_en": "Forever Therm",
+    "name_fa": "فوراور ترم-مکمل چربی سوز",
+    "weight": 0.129,
+    "price_toman": 4166385,
+    "price_aed": 140.31,
+    "description": "مکمل کمک به چربی‌سوزی و کاهش وزن"
+  },
+  {
+    "code": "464",
+    "name_en": "Forever Fiber",
+    "name_fa": "فوراور فیبر",
+    "weight": 0.13,
+    "price_toman": 4344934,
+    "price_aed": 146.23,
+    "description": "مکمل فیبر غذایی (تمام شد)"
+  },
+  {
+    "code": "470",
+    "name_en": "LITE ULTRA-VANILLA(Pouch)",
+    "name_fa": "فوراور لایت اولترا - پودر پروتئین وانیلی همراه با آمینوتئین",
+    "weight": 0.138,
+    "price_toman": 4465861,
+    "price_aed": 150.38,
+    "description": "پودر پروتئین وانیلی برای تغذیه ورزشی"
+  },
+  {
+    "code": "471",
+    "name_en": "LITE ULTRA-CHOCO(Pouch)",
+    "name_fa": "فوراور لایت اولترا - پودر پروتئین شکلاتی همراه با آمینوتئین",
+    "weight": 0.138,
+    "price_toman": 4465861,
+    "price_aed": 150.38,
+    "description": "پودر پروتئین شکلاتی برای تغذیه ورزشی"
+  },
+  {
+    "code": "473",
+    "name_en": "ARG + PACKET/POUCH",
+    "name_fa": "آرجی پلاس پک",
+    "weight": 0.341,
+    "price_toman": 11061247,
+    "price_aed": 372.48,
+    "description": "مکمل آمینو اسید و انرژی‌زا"
+  },
+  {
+    "code": "475",
+    "name_en": "CLEAN 9 - VANILLA Pouch",
+    "name_fa": "سی ناین وانیلی-کلین ناین حاوی مکمل و فیبر یک ماهه",
+    "weight": 0.771,
+    "price_toman": 24086625,
+    "price_aed": 811.60,
+    "description": "برنامه پاکسازی و مکمل غذایی ۳۰ روزه"
+  },
+  {
+    "code": "476",
+    "name_en": "CLEAN 9 - CHOCOLATE Pouch",
+    "name_fa": "سی ناین شکلاتی-کلین ناین حاوی مکمل و فیبر یک ماهه",
+    "weight": 0.771,
+    "price_toman": 24086625,
+    "price_aed": 811.60,
+    "description": "برنامه پاکسازی و مکمل غذایی ۳۰ روزه (تمام شد)"
+  },
+  {
+    "code": "521",
+    "name_en": "ALOE JOJOBA SHAMPOO 2016",
+    "name_fa": "شامپو آلوئه-جوجوبا",
+    "weight": 0.079,
+    "price_toman": 2913636,
+    "price_aed": 98.05,
+    "description": "شامپو تغذیه‌کننده مو (تمام شد)"
+  },
+  {
+    "code": "522",
+    "name_en": "ALOE JOJOBA CONDITION RINSE",
+    "name_fa": "آلوئه-جوجوبا کاندیشنینگ - نرم کننده و تقویت کننده",
+    "weight": 0.079,
+    "price_toman": 2571131,
+    "price_aed": 86.51,
+    "description": "نرم‌کننده و تقویت‌کننده مو (تمام شد)"
+  }
+]
+[
+  {
+    "code": "523",
+    "name_en": "ALOE HAND SOAP",
+    "name_fa": "صابون مایع دست آلوئه",
+    "weight": 0.759,
+    "price_toman": 4207934,
+    "price_aed": 141.65,
+    "description": "صابون مایع دست (تمام شد)"
+  },
+  {
+    "code": "528",
+    "name_en": "F15-BEGINNER 1&2-VANILLA",
+    "name_fa": "اف 15 - مبتدی ١ و ٢، وانیلی",
+    "weight": 0.69,
+    "price_toman": 21666248,
+    "price_aed": 729.24,
+    "description": "پودر پروتئین و مکمل غذایی برای شروع برنامه F15"
+  },
+  {
+    "code": "536",
+    "name_en": "F15-ADVANCED 1&2-VANILLA",
+    "name_fa": "اف 15 - پیشرفته ١ و ٢، وانیلی",
+    "weight": 0.69,
+    "price_toman": 21666248,
+    "price_aed": 729.24,
+    "description": "پودر پروتئین و مکمل غذایی پیشرفته F15"
+  },
+  {
+    "code": "547",
+    "name_en": "Clean 9 Vanilla with Innerpack",
+    "name_fa": "سی ناین وانیلی-کلین ناین ٩ روزه",
+    "weight": 0.598,
+    "price_toman": 19413121,
+    "price_aed": 653.29,
+    "description": "برنامه پاکسازی و مکمل غذایی ۹ روزه"
+  },
+  {
+    "code": "548",
+    "name_en": "Clean 9 Choco with Innerpack",
+    "name_fa": "سی ناین شکلاتی-کلین ناین ٩ روزه",
+    "weight": 0.598,
+    "price_toman": 19413121,
+    "price_aed": 653.29,
+    "description": "برنامه پاکسازی و مکمل غذایی ۹ روزه (تمام شد)"
+  },
+  {
+    "code": "551L",
+    "name_en": "FOREVER MOVE",
+    "name_fa": "فوراور موو",
+    "weight": 0.29,
+    "price_toman": 9467802,
+    "price_aed": 318.69,
+    "description": "مکمل ورزشی برای تحرک و انرژی"
+  },
+  {
+    "code": "559",
+    "name_en": "Exfoliator",
+    "name_fa": "اسموثینگ اکسفولیتور-لایه بردار صاف کننده تارگت",
+    "weight": 0.078,
+    "price_toman": 2555106,
+    "price_aed": 85.99,
+    "description": "لایه‌بردار پوست صورت"
+  },
+  {
+    "code": "560",
+    "name_en": "Balancing Toner",
+    "name_fa": "بالانسینگ تونر-تونر متعادل کننده تارگت",
+    "weight": 0.089,
+    "price_toman": 2913092,
+    "price_aed": 98.05,
+    "description": "تونر متعادل‌کننده پوست"
+  },
+  {
+    "code": "561",
+    "name_en": "Eye Cream",
+    "name_fa": "اویکنینگ آی کرم-رفع تیرگی و چین و چروک دور چشم تارگت",
+    "weight": 0.083,
+    "price_toman": 2710633,
+    "price_aed": 91.27,
+    "description": "کرم دور چشم رفع تیرگی و چین و چروک"
+  },
+  {
+    "code": "566",
+    "name_en": "Forever immune Gummy",
+    "name_fa": "ایمونه گامی",
+    "weight": 0.148,
+    "price_toman": 4797023,
+    "price_aed": 161.53,
+    "description": "قرص جویدنی تقویت سیستم ایمنی"
+  },
+  {
+    "code": "605",
+    "name_en": "Cleansing Gel",
+    "name_fa": "رفرشینگ ژل کلینزر سونیا-ژل پاک کننده و طراوت بخش",
+    "weight": 0.103,
+    "price_toman": 3323659,
+    "price_aed": 111.93,
+    "description": "ژل پاک‌کننده و طراوت‌بخش پوست"
+  },
+  {
+    "code": "606",
+    "name_en": "Illuminating Gel",
+    "name_fa": "ایلومینیتینگ ژل سونیا-ژل شفاف کننده و ضدلک",
+    "weight": 0.098,
+    "price_toman": 3168132,
+    "price_aed": 106.68,
+    "description": "ژل شفاف‌کننده و ضد لک پوست"
+  }
+]
+[
+  {
+    "code": "607",
+    "name_en": "Refining Gel Mask",
+    "name_fa": "ریفاینینگ ژل ماسک سونیا - ژل ماسک ترمیم و پاکسازی",
+    "weight": 0.103,
+    "price_toman": 3323659,
+    "price_aed": 111.93,
+    "description": "ژل ماسک ترمیم و پاکسازی پوست"
+  },
+  {
+    "code": "608",
+    "name_en": "Soothing Gel Moisturizer",
+    "name_fa": "سوفینگ ژل مویسچرایزر سونیا - ژل مرطوب کننده و تسکین دهنده",
+    "weight": 0.112,
+    "price_toman": 3623456,
+    "price_aed": 121.95,
+    "description": "ژل مرطوب‌کننده و تسکین‌دهنده پوست"
+  },
+  {
+    "code": "609",
+    "name_en": "Sonya Skin System Pack",
+    "name_fa": "پکیج مراقبت پوست روزانه سونیا",
+    "weight": 0.356,
+    "price_toman": 13288532,
+    "price_aed": 447.12,
+    "description": "پکیج مراقبت روزانه پوست (تمام شد)"
+  },
+  {
+    "code": "610",
+    "name_en": "New Active Pro",
+    "name_fa": "فوراور اکتیو پروبیوتیک",
+    "weight": 0.157,
+    "price_toman": 5085468,
+    "price_aed": 171.11,
+    "description": "پروبیوتیک و مکمل سلامت دستگاه گوارش"
+  },
+  {
+    "code": "612",
+    "name_en": "Activator",
+    "name_fa": "لوئه اکتیویتور جدید-مایع فعال ساز",
+    "weight": 0.066,
+    "price_toman": 2197638,
+    "price_aed": 74.03,
+    "description": "مایع فعال‌ساز مکمل‌ها"
+  },
+  {
+    "code": "613",
+    "name_en": "Forever Marine Collagen",
+    "name_fa": "مارین کلاژن فوراور ساشه نوشیدنی کلاژن دریایی",
+    "weight": 0.327,
+    "price_toman": 10595376,
+    "price_aed": 356.62,
+    "description": "نوشیدنی کلاژن دریایی برای پوست و مفاصل"
+  },
+  {
+    "code": "616",
+    "name_en": "Bio-Cellulose Mask",
+    "name_fa": "ماسک آلوئه بیو سلولز",
+    "weight": 0.232,
+    "price_toman": 7233008,
+    "price_aed": 243.33,
+    "description": "ماسک آبرسان و ترمیم‌کننده پوست"
+  },
+  {
+    "code": "617",
+    "name_en": "new sunscreen cream",
+    "name_fa": "ضد آفتاب-جدید",
+    "weight": 0.083,
+    "price_toman": 3405459,
+    "price_aed": 114.70,
+    "description": "کرم ضد آفتاب با محافظت بالا"
+  },
+  {
+    "code": "618",
+    "name_en": "Hydrating Serum",
+    "name_fa": "هیدراتینگ سرم فوراور-سرم آبرسان قوی",
+    "weight": 0.144,
+    "price_toman": 4650807,
+    "price_aed": 156.56,
+    "description": "سرم آبرسان قوی پوست"
+  },
+  {
+    "code": "621",
+    "name_en": "Supergreens",
+    "name_fa": "سوپر گرینز پودر سبزیجات فوراور",
+    "weight": 0.154,
+    "price_toman": 4863166,
+    "price_aed": 163.68,
+    "description": "پودر سبزیجات انرژی‌زا (تمام شد)"
+  },
+  {
+    "code": "622",
+    "name_en": "Forever Focus",
+    "name_fa": "فوراور فوکاس",
+    "weight": 0.354,
+    "price_toman": 11467368,
+    "price_aed": 385.90,
+    "description": "مکمل تمرکز و انرژی ذهنی"
+  },
+  {
+    "code": "624",
+    "name_en": "I vision",
+    "name_fa": "آی ویژن",
+    "weight": 0.142,
+    "price_toman": 4735407,
+    "price_aed": 159.33,
+    "description": "مکمل سلامت چشم"
+  },
+  {
+    "code": "633",
+    "name_en": "Aloe Liquid Soap (New)",
+    "name_fa": "صابون مایع جدید",
+    "weight": 0.088,
+    "price_toman": 2850592,
+    "price_aed": 95.99,
+    "description": "صابون مایع آلوئه ورا جدید"
+  },
+  {
+    "code": "634",
+    "name_en": "Start Your Journey Pack",
+    "name_fa": "پک استارتر",
+    "weight": 1.5,
+    "price_toman": 47190393,
+    "price_aed": 1587.02,
+    "description": "پک شروع برنامه سلامت و مکمل"
+  },
+  {
+    "code": "640",
+    "name_en": "New Jojoba Shampoo",
+    "name_fa": "شامپو جوجوبا جدید",
+    "weight": 0.09,
+    "price_toman": 2915268,
+    "price_aed": 97.99,
+    "description": "شامپو جوجوبا جدید برای مو"
+  },
+  {
+    "code": "641",
+    "name_en": "New Jojoba Conditioner",
+    "name_fa": "نرم کننده جوجوبا جدید",
+    "weight": 0.097,
+    "price_toman": 3137092,
+    "price_aed": 105.61,
+    "description": "نرم‌کننده مو با جوجوبا"
+  },
+  {
+    "code": "642",
+    "name_en": "FOREVER NOURISHING HAIR OIL",
+    "name_fa": "روغن مغذی مو",
+    "weight": 0.111,
+    "price_toman": 3594960,
+    "price_aed": 120.97,
+    "description": "روغن مغذی و تقویت‌کننده مو"
+  },
+  {
+    "code": "646",
+    "name_en": "Aloe Body Wash",
+    "name_fa": "آلو بادی واش-شامپو بدن گیاهی",
+    "weight": 0.107,
+    "price_toman": 3468578,
+    "price_aed": 116.74,
+    "description": "شامپو بدن گیاهی با آلوئه ورا"
+  }
+]
+[
+  {
+    "code": "647",
+    "name_en": "Aloe Body Lotion",
+    "name_fa": "لوسیون بدن آلوئه ورا",
+    "weight": 0.107,
+    "price_toman": 3468578,
+    "price_aed": 116.74,
+    "description": "لوسیون بدن با آلوئه ورا برای نرم‌کنندگی و رطوبت پوست"
+  },
+  {
+    "code": "656",
+    "name_en": "Forever Plant Protein (390 g)",
+    "name_fa": "پلنت پروتئین -گیاهی",
+    "weight": 0.229,
+    "price_toman": 7170622,
+    "price_aed": 241.50,
+    "description": "پودر پروتئین گیاهی برای تغذیه و افزایش انرژی"
+  },
+  {
+    "code": "659",
+    "name_en": "DX4 PAK PRICELIST",
+    "name_fa": "پکیج dx4 فوراور-برنامه 4 روزه",
+    "weight": 0.629,
+    "price_toman": 19647326,
+    "price_aed": 661.32,
+    "description": "پکیج مکمل‌ها و برنامه 4 روزه سلامت و انرژی"
+  },
+  {
+    "code": "676",
+    "name_en": "Forever Aloe Turm",
+    "name_fa": "آلوئه تورم فوراور",
+    "weight": 0.026,
+    "price_toman": 843424,
+    "price_aed": 28.38,
+    "description": "نوشیدنی ژل آلوئه ورا با ترکیب تورم طبیعی"
+  },
+  {
+    "code": "716",
+    "name_en": "Forever Aloe Vera Gel Mini 330ml",
+    "name_fa": "نوشیدنی ژل خالص آلوئه ورا ۳۳۰ میلی لیتر",
+    "weight": 0.039,
+    "price_toman": 1215170,
+    "price_aed": 40.89,
+    "description": "نسخه کوچک نوشیدنی ژل آلوئه ورا برای مصرف روزانه"
+  },
+  {
+    "code": "71612",
+    "name_en": "Forever Aloe Vera Gel Mini 330ml (pk of 12)",
+    "name_fa": "نوشیدنی ژل خالص آلوئه ورا ۳۳۰ میلی لیتر پک ۱۲ تایی",
+    "weight": 0.468,
+    "price_toman": 14604498,
+    "price_aed": 491.62,
+    "description": "پک ۱۲ عددی نوشیدنی ژل آلوئه ورا برای مصرف طولانی مدت"
+  }
+]
+
+
+   
+
+  const tbody = document.getElementById('product-table-body');
+  products.forEach(product => {
+    const priceAed = (product.price_toman / exchangeRate).toFixed(2);
+    tbody.innerHTML += `
+      <tr>
+        <td>${product.code}</td>
+        <td>${product.name_fa}</td>
+        <td>${product.description}</td>
+        <td>${product.weight}</td>
+        <td>${product.price_toman.toLocaleString()} تومان</td>
+        <td>${priceAed} AED</td>
+      </tr>
+    `;
+  });
 </script>
 
 
 
 </body>
 </html>
+
 
 
 
