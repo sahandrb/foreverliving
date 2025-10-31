@@ -257,9 +257,8 @@ body {
         <th>کد</th>
         <th>نام محصول</th>
         <th>کاربرد</th>
-        <th>وزن (kg)</th>
         <th>قیمت (تومان)</th>
-        <th>قیمت (درهم)</th>
+        
       </tr>
     </thead>
     <tbody id="product-table-body"></tbody>
@@ -1248,9 +1247,8 @@ products.forEach(product => {
         <td>${product.code}</td>
         <td>${product.name_fa}</td>
         <td>${product.description}</td>
-        <td>${product.weight}</td>
         <td>${product.price_toman.toLocaleString()}</td>
-        <td>${product.price_aed.toFixed(2)}</td>
+      
     `;
 
     tableBody.appendChild(row);
@@ -1261,6 +1259,7 @@ products.forEach(product => {
 
 </body>
 </html>
+
 
 
 
