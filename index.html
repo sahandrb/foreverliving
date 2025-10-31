@@ -1,412 +1,334 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-   
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link href="https://cdn.fontcdn.ir/Font/Persian/IRANSans.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ============================
-   استایل کلی بدن و فونت‌ها
-============================ */
-body {
-    color: #155c00; /* سبز تیره برای متن‌ها */
-    font-family: 'IRANSans', sans-serif;
-    direction: rtl;
-    text-align: right;
-    font-size: 16px;
-    line-height: 1.8;
+   
+   /* --- Base Reset --- */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+   font-family: 'IRANSans', sans-serif;
+    background: #f7f8f7;
+    color: #2b2b2b;
+    line-height: 1.7;
+    direction: rtl;
+    text-align: right;
+}
+   
 
-/* ============================
-   سکشن‌ها و container
-============================ */
-.section {
-    padding: 100px 20px;
-    position: relative;
-    display: flex;
-    justify-content: center;
+/* --- Layout --- */
+#product {
+    padding: 20px 0;
 }
 
-.section .container {
-    max-width: 1200px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.section-separator {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #98F516, #56C000); /* سبز گرادیانت */
-    margin: 60px auto;
-    border-radius: 2px;
-}
-
-
-/* ============================
-   کارت محصول
-============================ */
-.product-card {
-    display: flex;
-    flex-wrap: wrap;
-    background: #f0f9d8; /* پس‌زمینه سبز بسیار روشن */
-    border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(152, 245, 22, 0.2); /* سایه سبز با شفافیت */
-    overflow: hidden;
-    max-width: 1000px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(152, 245, 22, 0.35); /* سایه سبز قوی‌تر هنگام هاور */
-}
-
-
-.product-image {
-    flex: 1;
-    text-align: center;
-    padding: 30px;
-}
-
-.product-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    transition: transform 0.6s ease, filter 0.6s ease;
-}
-
-.product-image img:hover {
-    transform: scale(1.05) rotate(-2deg);
-    filter: brightness(1.05) drop-shadow(0 0 20px rgba(0,0,0,0.2));
-}
-
-.product-content {
-    flex: 1;
-    padding: 40px;
+.container {
+    width: 92%;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 35px;
 }
 
-
-
-.product-content p {
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: #333;
+/* --- Product Sections --- */
+.product__intro,
+.product__details {
+    background: rgba(255,255,255,.6);
+    padding: 18px 16px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
 }
 
-.product-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.product-content ul li {
-    font-size: 16px;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    background: #f7f7f7;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-content ul li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* ============================
-   کارت واردکننده
-============================ */
-.importer-card {
-    background: #f0f9d8; /* پس‌زمینه سبز بسیار روشن */
-    border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(152, 245, 22, 0.2); /* سایه سبز با شفافیت */
-    padding: 50px 45px;
-    max-width: 1000px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.importer-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(152, 245, 22, 0.35); /* سایه سبز قوی‌تر هنگام هاور */
-}
-
-.product-content h2,
-.importer-content h2 {
-    font-size: 25px; /* یا 32px برای importer */
-    margin-bottom: 20px;
+/* --- Titles --- */
+.product__title {
+    font-size: 20px;
     font-weight: 700;
-    color: #98F516; /* سبز جذاب */
-    background: none; /* حذف گرادیانت قبلی */
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
-}
-
-.importer-content p {
-    font-size: 17px;
-    line-height: 1.9;
-    margin-bottom: 18px;
-    color: #155c00; /* متن سبز تیره برای هماهنگی با تم */
-}
-
-.importer-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 25px 0;
-}
-
-.importer-content ul li {
-    font-size: 16px;
+    color: #1A4D2E;
     margin-bottom: 12px;
-    padding: 12px 18px;
-    border-radius: 15px;
-    background: #e6f9c6; /* سبز روشن برای پس‌زمینه آیتم‌ها */
-    box-shadow: 0 4px 12px rgba(152, 245, 22, 0.2); /* سایه سبز ملایم */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.importer-content ul li:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(152, 245, 22, 0.35); /* سایه پررنگ‌تر هنگام هاور */
-}
-
-/* ============================
-   شماره تماس
-============================ */
-.contact-box {
-    margin-top: 50px;
-    padding: 30px 40px;
-    background: linear-gradient(135deg, #c6f9a3, #98F516); /* گرادیانت سبز جذاب */
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(152, 245, 22, 0.3); /* سایه سبز ملایم */
+/* --- Product Image --- */
+.product__image {
+    width: 100%;
+    margin: 12px 0 18px 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #155c00; /* متن سبز تیره */
 }
 
-.contact-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 45px rgba(152, 245, 22, 0.35); /* سایه پررنگ‌تر هنگام هاور */
+.product__image img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
 }
 
-.contact-box span {
-    font-size: 26px;
-    font-weight: 800;
-    color: #155c00; /* متن سبز تیره برای span */
+/* --- Text Content --- */
+.product__description p,
+.product__highlight p,
+.product__extra-info p,
+.product__cta-text {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 16px;
 }
 
-.contact-box a {
-    font-size: 18px;
-    font-weight: 800;
-    color: #155c00; /* متن سبز تیره */
-    padding: 12px 20px;
-    border-radius: 15px;
+/* --- Feature & Benefit Lists --- */
+.product__features,
+.product__benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.product__features li,
+.product__benefits li {
+    background: #6A9C80;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+/* --- Highlight Box --- */
+.product__highlight {
+    background: rgba(106,156,128,.15);
+    border-left: 4px solid #6A9C80;
+    padding: 14px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+/* --- Contact Section --- */
+.product__contact {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact__label {
+    font-weight: bold;
+    color: #1A4D2E;
+}
+
+.contact__phone,
+.contact__email {
+    display: block;
+    padding: 12px;
+    background: #6A9C80;
     text-decoration: none;
-    background: #e6f9c6; /* سبز روشن */
-    transition: all 0.3s ease;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 15px;
+    transition: .3s;
 }
 
-.contact-box a:hover {
-    color: #fff; /* متن سفید هنگام هاور */
-    background: #56C000; /* سبز پررنگ جذاب */
-    transform: scale(1.05);
+.contact__phone:hover,
+.contact__email:hover {
+    background: #1A4D2E;
 }
-.product-image img {
-    box-shadow: 0 8px 25px rgba(152, 245, 22, 0.25); /* سایه سبز ملایم */
-}
-.product-image img:hover {
-    filter: brightness(1.05) drop-shadow(0 0 20px rgba(152, 245, 22,0.2));
+   article {
+    margin-bottom: 20px;
 }
 
 
-/* ============================
-   ریسپانسیو موبایل
-============================ */
-
-@media (max-width: 768px) {
-    .product-card,
-    .importer-card {
-        width: 100%;            /* کارت کل عرض صفحه */
-        max-width: 100%;        /* حداکثر عرض هم 100% */
-        flex-direction: column; /* چینش ستونی */
-        align-items: stretch;   /* محتوا تمام عرض */
-        padding: 20px;          /* padding داخلی مناسب */
-        margin: 0;              /* فاصله خارجی صفر */
-        border-radius: 0;       /* گوشه‌ها صاف */
-        box-shadow: none;       /* سایه‌ها حذف */
-        background: transparent; /* زمینه کارت بدون رنگ */
-    }
-
-    .product-content,
-    .importer-content {
-        padding: 0; /* محتوای داخل کارت هم به لبه‌ها بچسبه */
+/* --- Responsive (Extra Safety) --- */
+@media (min-width: 600px) {
+    .container {
+        width: 480px;
     }
 }
 
 </style>
+   <title>خرید ژل آلوئه ورا فوراور | اصل + ارسال سریع تهران و کرج</title>
+<meta name="description" content="ژل خالص آلوئه‌ورا فوراور لیوینگ اصل با ارسال سریع و ضمانت اصالت. مناسب پوست، سیستم ایمنی و انرژی بدن. دریافت مشاوره قبل خرید.">
+
 </head>
 <body>
-<section id="product-text-section" class="section">
+   <section id="product" class="product">
     <div class="container">
-        <div class="product-card">
 
-            <!-- بخش متن محصول -->
-            <div class="product-content">
-                <div class="section-separator"></div>
-                <h2 style="color: #98F516;">فوراور لیوینگ در تهران و کرج</h2>
+        <article class="product__intro">
+            <header class="product__header">
+                <h1 class="product__title">نام محصول / برند</h1>
+            </header>
 
-            <div class="product-image">
-                <img src="1000071153.png" alt="محصولات فوراور لیوینگ">
+            <figure class="product__image">
+                <img src="1000071153.png" alt="تصویر محصول آلوئه ورا برند فوراور">
+            </figure>
+
+            <div class="product__description">
+                <p>متن معرفی محصول...</p>
             </div>
 
-                <div class="intro-text" style="margin-bottom: 25px; padding: 20px; background: #fff4f8; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
-                    <p style="font-size: 18px; line-height: 1.7; color: #4a4a4a; text-align: justify;">
-                        برند جهانی <strong>فوراور لیوینگ</strong> با تمرکز بر تولید محصولات طبیعی و اوریجینال بر پایه <strong>آلوئه‌ورا</strong>، از سال 1978 فعالیت خود را آغاز کرده است. ما در تهران و سپس کرج، با واردات مستقیم از امارات متحده عربی و ترکیه، تمامی محصولات <strong>اورجینال آمریکایی</strong> را ارائه می‌دهیم. محصولات ما با تضمین اصالت و کیفیت، کاملاً ایمن و استاندارد هستند و مناسب مصرف روزانه می‌باشند.
-                    </p>
-                </div>
+            <h2 class="product__subtitle">مزایای این محصول</h2>
+            <ul class="product__features">
+                <li>مزیت اول...</li>
+                <li>مزیت دوم...</li>
+                <li>مزیت سوم...</li>
+            </ul>
+        </article>
 
-                <p style="font-size: 18px; line-height: 1.7; color: #155c00; text-align: justify;">
+        <article class="product__details">
+            <header class="product__header">
+                <h2 class="product__title">چرا این محصول را انتخاب کنیم؟</h2>
+            </header>
 
-                    استفاده از ژل خالص آلوئه‌ورا و فرمولاسیون طبیعی سبب شده محصولات فوراور لیوینگ برای سلامت پوست، زیبایی و تغذیه فوق‌العاده مناسب باشند. شما می‌توانید با خیالی آسوده از کیفیت و ایمنی محصولات بهره‌مند شوید.
-                </p>
-
-                <ul >
-                    <li>واردات مستقیم از منابع رسمی در امارات و ترکیه</li>
-                    <li>تمامی محصولات اورجینال و دارای بارکد اصالت</li>
-                    <li>ارسال سریع به تهران، کرج و استان البرز</li>
-                </ul>
-
+            <div class="product__highlight">
+                <p>توضیح بخش تاکید...</p>
             </div>
 
-            
-
-            <!-- بخش اطلاعات -->
-            <div class="product-content">
-                <h2 style="color: #98F516;">چرا محصولات فوراور لیوینگ؟</h2>
-
-                <div class="importer-highlight" style="margin: 25px 0; padding: 25px; background: #fff4f0; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <p style="font-size: 17px; line-height: 1.8; color: #4a4a4a; text-align: justify;">
-                        تمامی محصولات فوراور لیوینگ، از فرآورده‌های طبیعی و استاندارد <strong>آلوئه‌ورا</strong> تهیه شده‌اند و فاقد مواد نگهدارنده و شیمیایی مضر هستند. خرید از ما در تهران و کرج، به معنای اطمینان از اصالت کالا و کیفیت بالا است. پشتیبانی و راهنمایی کامل مصرف محصولات نیز برای مشتریان ارائه می‌شود.
-                    </p>
-                </div>
-
-                <p style="font-size: 17px; line-height: 1.8; color: #4a4a4a; text-align: justify;">
-                    با انتخاب محصولات فوراور، شما سلامتی و زیبایی خود را تضمین می‌کنید و از قدرت طبیعی <strong>آلوئه‌ورا</strong> بهره‌مند می‌شوید.
-                </p>
-                <p style="font-size: 17px; line-height: 1.8; color: #4a4a4a; text-align: justify;">
-                    مناسب برای استفاده روزانه و تمام اعضای خانواده.
-                </p>
-
-                <ul>
-                    <li>محصولات آمریکایی اورجینال</li>
-                    <li>کاملاً ایمن و استاندارد</li>
-                    <li>ارسال سریع به تهران و کرج</li>
-                    <li>پشتیبانی قبل و بعد از خرید</li>
-                </ul>
-
-                <p style="font-size: 17px; line-height: 1.8; color: #4a4a4a; text-align: justify;">
-                    برای دریافت مشاوره و خرید محصولات، همین حالا با ما در تماس باشید.
-                </p>
-
-                <div class="section-separator"></div>
-
-                <div class="contact-box" style="color: #98F516;">
-                    <span>نماینده فروش آرمیتا عاهد:</span>
-                    <a href="tel:+989124243347">تماس تلفنی</a>
-                    <a href="mailto:info@foreverlivingiran.com">ایمیل</a>
-                </div>
-
+            <h3>توضیحات تکمیلی</h3>
+            <div class="product__extra-info">
+                <p>متن...</p>
+                <p>متن...</p>
             </div>
-        </div>
+
+            <h3>ویژگی‌های کلیدی</h3>
+            <ul class="product__benefits">
+                <li>ویژگی ۱</li>
+                <li>ویژگی ۲</li>
+                <li>ویژگی ۳</li>
+                <li>ویژگی ۴</li>
+            </ul>
+
+            <p class="product__cta-text">برای مشاوره و خرید در تماس باشید.</p>
+
+            <footer class="product__contact">
+                <span class="contact__label">مشاوره و پشتیبانی:</span>
+                <a class="contact__phone" href="tel:+98xxxxxxxx">تماس تلفنی</a>
+                <a class="contact__email" href="mailto:info@example.com">ارسال ایمیل</a>
+            </footer>
+        </article>
+
     </div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 
-<script>// GSAP Animation for Product Section
-gsap.registerPlugin(ScrollTrigger);
+   
+<script>
+   
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "ItemList",
+  "itemListElement": [
 
-gsap.timeline({
-    scrollTrigger: {
-        trigger: "#product-section",
-        start: "top 80%",
+    {
+      "@type": "Product",
+      "name": "ژل نوشیدنی آلوئه‌ورا فوراور (Forever Aloe Vera Gel®)",
+      "description": "ژل خالص آلوئه‌ورا برای پاکسازی بدن، بهبود گوارش و تقویت سیستم ایمنی.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "22.80", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "ژل آلوئه‌ورا با عصاره توت فوراور (Forever Aloe Berry Nectar®)",
+      "description": "ترکیبی از آلوئه‌ورا، کرن‌بری و سیب برای سلامت گوارش و مجاری ادراری.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "22.80", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "خمیردندان فوراور برایت (Forever Bright® Toothgel)",
+      "description": "خمیردندان بدون فلوراید با پایه آلوئه‌ورا مناسب لثه‌های حساس.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "8.34", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "ژل ترمیم‌کننده پوست آلوئه‌ورا (Aloe Vera Gelly)",
+      "description": "ژل آرام‌بخش و ترمیم‌کننده مناسب سوختگی‌ها، التهاب و خشکی پوست.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "14.51", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "بالم لب آلوئه‌ورا فوراور (Forever Aloe Lips®)",
+      "description": "مرطوب‌کننده و ترمیم‌کننده لب حاوی آلوئه‌ورا و جوجوبا.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "3.80", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "لوسیون گرم‌کننده آلوئه‌ورا (Aloe Heat Lotion)",
+      "description": "کرم ماساژ برای تسکین درد عضلات و رفع خستگی.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "14.51", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "مام دئودورانت آلوئه‌ورا (Aloe Ever-Shield®)",
+      "description": "دئودورانت بدون آلومینیوم و ضد حساسیت مناسب استفاده روزانه.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "7.86", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "مکمل امگا ۳ فوراور Arctic Sea®",
+      "description": "حاوی DHA و EPA جهت سلامت قلب، مغز و مفاصل.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "31.23", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "ویتامین C فوراور (Forever Absorbent-C®)",
+      "description": "ویتامین C با جذب بالا برای تقویت سیستم ایمنی و افزایش انرژی.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "17.47", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "مکمل تقویت ایمنی فوراور (Forever ImmuBlend®)",
+      "description": "کمک به بهبود عملکرد ایمنی و افزایش مقاومت بدن.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "22.88", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "صابون آلوئه‌ورا و آووکادو (Aloe Avocado Face & Body Soap)",
+      "description": "صابون مرطوب‌کننده پوست بدن و صورت با عصاره آووکادو و آلوئه‌ورا.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "6.62", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
     }
-}).from("#product-section .product-image img", {
-    y: 50,
-    opacity: 0,
-    scale: 0.8,
-    duration: 1,
-    ease: "power2.out"
-});
 
-gsap.timeline({
-    scrollTrigger: {
-        trigger: "#product-section",
-        start: "top 80%",
-    }
-}).from("#product-section .product-content h2", {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
-});
-gsap.from("#product-image-section .product-image img", {
-    scrollTrigger: {
-        trigger: "#product-image-section",
-        start: "top 80%",
-    },
-    y: 50,
-    opacity: 0,
-    scale: 0.8,
-    duration: 1,
-    ease: "power2.out"
-});
-
-gsap.from("#product-text-section .product-content h2", {
-    scrollTrigger: {
-        trigger: "#product-text-section",
-        start: "top 80%",
-    },
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
-});
-
-gsap.from("#product-text-section .product-content p, #product-text-section ul li", {
-    scrollTrigger: {
-        trigger: "#product-text-section",
-        start: "top 85%",
-    },
-    y: 20,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.1,
-    ease: "power2.out"
-});
-
+  ]
+}
 </script>
 
-</body>
 
+
+</body>
 </html>
+
 
 
 
