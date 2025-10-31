@@ -145,34 +145,95 @@ body {
    article {
     margin-bottom: 20px;
 }
-
-  .price-table {
+/* --- Price Table Modern Style --- */
+.price-table {
     max-width: 1000px;
-    margin: auto;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-  }
-  .price-table table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .price-table th, .price-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
-  }
-  .price-table th {
-    background: #f4f4f4;
-  }
-  .price-note {
-    font-size: 0.9em;
-    color: #555;
-  }
+    margin: 40px auto;
+    font-family: 'IRANSans', sans-serif;
+    direction: rtl;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    overflow-x: auto;
+}
 
-/* --- Responsive (Extra Safety) --- */
+.price-table h2 {
+    text-align: center;
+    color: #1A4D2E;
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.price-table .price-note {
+    text-align: center;
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.price-table table {
+    width: 100%;
+    min-width: 600px; /* حداقل عرض جدول روی موبایل */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.price-table th,
+.price-table td {
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.price-table th {
+    background: rgba(106,156,128,0.85);
+    color: white;
+    font-weight: 700;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.price-table td {
+    background: rgba(255, 255, 255, 0.6);
+    color: #2b2b2b;
+}
+
+.price-table tbody tr {
+    border-radius: 12px;
+    margin-bottom: 6px;
+    display: table-row;
+}
+
+.price-table tbody tr:hover td {
+    background: rgba(106,156,128,0.2);
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .price-table th, 
+    .price-table td {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .price-table tbody tr:hover td {
+        transform: none; /* جلوه بزرگ شدن روی موبایل حذف می‌شود */
+        box-shadow: none;
+    }
+}
+
 @media (min-width: 600px) {
     .container {
-        width: 480px;
+        width: 92%;
+        max-width: 1000px; /* حداکثر برای دسکتاپ */
+        margin: auto;
     }
 }
 
@@ -1252,6 +1313,7 @@ products.forEach(product => {
 
 </body>
 </html>
+
 
 
 
