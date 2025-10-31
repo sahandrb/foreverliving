@@ -1230,12 +1230,34 @@ body {
       </tr>
     `;
   });
+   
+const tbody = document.getElementById('product-table-body');
+
+products.forEach(product => {
+    const tr = document.createElement('tr');
+    
+    // تبدیل نرخ درهم به تومان (درصورت نیاز)
+    const priceAED = product.price_aed.toFixed(2);
+    const priceToman = product.price_toman.toLocaleString(); // جداکننده هزار
+    
+    tr.innerHTML = `
+        <td>${product.code}</td>
+        <td>${product.name_fa}</td>
+        <td>${product.description}</td>
+        <td>${product.weight}</td>
+        <td>${priceToman}</td>
+        <td>${priceAED}</td>
+    `;
+    
+    tbody.appendChild(tr);
+});
 </script>
 
 
 
 </body>
 </html>
+
 
 
 
