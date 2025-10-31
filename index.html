@@ -1216,21 +1216,7 @@ body {
 
    
 
-  const tbody = document.getElementById('product-table-body');
-  products.forEach(product => {
-    const priceAed = (product.price_toman / exchangeRate).toFixed(2);
-    tbody.innerHTML += `
-      <tr>
-        <td>${product.code}</td>
-        <td>${product.name_fa}</td>
-        <td>${product.description}</td>
-        <td>${product.weight}</td>
-        <td>${product.price_toman.toLocaleString()} تومان</td>
-        <td>${priceAed} AED</td>
-      </tr>
-    `;
-  });
-   
+
 const tbody = document.getElementById('product-table-body');
 
 products.forEach(product => {
@@ -1252,11 +1238,30 @@ products.forEach(product => {
     tbody.appendChild(tr);
 });
 </script>
+<script>
+const tableBody = document.getElementById('product-table-body');
+
+products.forEach(product => {
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+        <td>${product.code}</td>
+        <td>${product.name_fa}</td>
+        <td>${product.description}</td>
+        <td>${product.weight}</td>
+        <td>${product.price_toman.toLocaleString()}</td>
+        <td>${product.price_aed.toFixed(2)}</td>
+    `;
+
+    tableBody.appendChild(row);
+});
+</script>
 
 
 
 </body>
 </html>
+
 
 
 
