@@ -1,399 +1,1374 @@
 <!DOCTYPE html>
 <html lang="fa">
-
 <head>
-  <!-- 1. Charset: برای پشتیبانی کامل از فارسی و کاراکترهای یونی‌کد -->
-  <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link href="https://cdn.fontcdn.ir/Font/Persian/IRANSans.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 2. Viewport: ریسپانسیو کردن صفحه برای موبایل و تبلت -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- 3. Title: عنوان صفحه که در مرورگر و نتایج گوگل نمایش داده می‌شود -->
-  <title>صفحه معرفی | گروه Sahand Apex به مدیریت سهند رنجبری‌پور</title>
-
-  <!-- 4. Meta Description: توضیح کوتاه درباره صفحه برای موتورهای جستجو -->
-  <meta name="description" content="Sahand Apex به مدیریت سهند رنجبری‌پور: تأمین‌کننده ملزومات اداری و محصولات پت‌شاپ با سفارش عمده و برند اختصاصی برای کسب‌وکارها.">
-
-  <!-- 5. Meta Keywords: کلمات کلیدی مرتبط با صفحه (امروزه کمتر استفاده می‌شود، ولی برای کامل بودن گذاشته شده) -->
-  <meta name="keywords" content="سهند اپکس, Sahand Apex, سهند رنجبری‌پور, واردات B2B, ملزومات اداری, پت‌شاپ, برند اختصاصی">
-
-  <!-- 6. Robots: تعیین نحوه ایندکس شدن صفحه توسط موتورهای جستجو -->
-  <meta name="robots" content="index, follow">
-  <!-- هدف: به گوگل بگو این صفحه ایندکس شود و لینک‌های آن دنبال شوند -->
-
-  <!-- 7. Canonical: آدرس اصلی صفحه برای جلوگیری از محتوای تکراری -->
-  <link rel="canonical" href="https://example.com/about">
-  <!-- هدف: اعلام URL اصلی به موتورهای جستجو -->
-
-  <!-- 8. Open Graph: تنظیمات شبکه‌های اجتماعی (Facebook, LinkedIn و غیره) -->
-  <meta property="og:title" content="Sahand Apex | سهند رنجبری‌پور">
-  <meta property="og:description" content="Sahand Apex به مدیریت سهند رنجبری‌پور: تأمین‌کننده ملزومات اداری و محصولات پت‌شاپ با سفارش عمده و برند اختصاصی.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/about">
-  <meta property="og:image" content="https://example.com/images/logo.png">
-  <!-- هدف: هنگام اشتراک‌گذاری در شبکه‌های اجتماعی، تصویر و توضیح مناسب نمایش داده شود -->
-
-  <!-- 9. Twitter Card: تنظیمات بهینه برای اشتراک‌گذاری در توییتر -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sahand Apex | سهند رنجبری‌پور">
-  <meta name="twitter:description" content="Sahand Apex به مدیریت سهند رنجبری‌پور: تأمین‌کننده ملزومات اداری و محصولات پت‌شاپ با سفارش عمده و برند اختصاصی.">
-  <meta name="twitter:image" content="https://example.com/images/logo.png">
-  <!-- هدف: نمایش کارت بزرگ با تصویر و توضیح هنگام توییت کردن لینک صفحه -->
-
-  <!-- 10. Favicon: آیکون صفحه -->
-  <link rel="icon" href="https://example.com/images/favicon.ico" type="image/x-icon">
-
-  <!-- 11. CSS اصلی: اگر استایل دارید می‌توانید اینجا اضافه کنید -->
-  <link rel="stylesheet" href="https://example.com/css/style.css">
-
-  <!-- 12. JavaScript اصلی: اگر اسکریپت دارید -->
-  <script src="https://example.com/js/main.js" defer></script>
-
-  <style>
-/* ==============================
-   Reset و تایپوگرافی
-============================== */
+<style>
+   
+   /* --- Base Reset --- */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  background-color: #F5F5F5; /* 60% رنگ اصلی */
-  color: #003366; /* 30% رنگ ثانویه */
-  line-height: 1.6;
+   font-family: 'IRANSans', sans-serif;
+    background: #f7f8f7;
+    color: #2b2b2b;
+    line-height: 1.7;
+    direction: rtl;
+    text-align: right;
+}
+   
+
+/* --- Layout --- */
+#product {
+    padding: 20px 0;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* ==============================
-   Container عمومی
-============================== */
 .container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-  padding: 2rem 0;
-}
-
-/* ==============================
-   Header
-============================== */
-header {
-  text-align: center;
-  padding: 4rem 1rem 2rem;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1.1rem;
-  color: #003366cc;
-}
-
-/* ==============================
-   بخش‌ها
-============================== */
-section {
-  margin: 4rem 0;
-}
-
-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #E67E22; /* 10% رنگ تأکیدی */
-  display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-section p {
-  margin-bottom: 1rem;
-}
-
-ul {
-  margin: 1rem 0 1rem 1.5rem;
-  list-style-type: disc;
-}
-
-/* ==============================
-   Buttons / لینک‌ها
-============================== */
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background-color: #E67E22; /* رنگ تأکیدی */
-  color: #fff;
-  font-weight: 600;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background-color: #d66d1c;
-}
-
-/* ==============================
-   بخش نمونه‌کارها
-============================== */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.portfolio-item {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.portfolio-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.portfolio-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.portfolio-item h3 {
-  font-size: 1.2rem;
-  margin: 0.5rem 1rem;
-}
-
-.portfolio-item p {
-  margin: 0 1rem 1rem;
-}
-
-/* ==============================
-   Skills / Contact
-============================== */
-.skills,
-.contact {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.skill {
-  background: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  flex: 1 1 150px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-.contact-item {
-  flex: 1 1 200px;
-  background: #fff;
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  text-align: center;
-}
-
-.contact-item a {
-  color: #E67E22;
-  font-weight: 600;
-}
-
-/* ==============================
-   Footer
-============================== */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;
-  color: #003366cc;
-  border-top: 1px solid #ddd;
-}
-
-/* ==============================
-   Responsive Typography
-============================== */
-@media(max-width:900px){
-  .portfolio-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-
-@media(max-width:600px){
-  header h1 {
-    font-size: 2rem;
-  }
-
-  section h2 {
-    font-size: 1.5rem;
-  }
-
-  .skills, .contact {
+    width: 92%;
+    margin: auto;
+    display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 35px;
+}
+
+/* --- Product Sections --- */
+.product__intro,
+.product__details {
+    background: rgba(255,255,255,.6);
+    padding: 18px 16px;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.3);
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+}
+
+/* --- Titles --- */
+.product__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A4D2E;
+    margin-bottom: 12px;
+}
+
+/* --- Product Image --- */
+.product__image {
+    width: 100%;
+    margin: 12px 0 18px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.product__image img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+/* --- Text Content --- */
+.product__description p,
+.product__highlight p,
+.product__extra-info p,
+.product__cta-text {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+/* --- Feature & Benefit Lists --- */
+.product__features,
+.product__benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.product__features li,
+.product__benefits li {
+    background: #6A9C80;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+/* --- Highlight Box --- */
+.product__highlight {
+    background: rgba(106,156,128,.15);
+    border-left: 4px solid #6A9C80;
+    padding: 14px;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+/* --- Contact Section --- */
+.product__contact {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact__label {
+    font-weight: bold;
+    color: #1A4D2E;
+}
+
+.contact__phone,
+.contact__email {
+    display: block;
+    padding: 12px;
+    background: #6A9C80;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.contact__phone:hover,
+.contact__email:hover {
+    background: #1A4D2E;
+}
+   article {
+    margin-bottom: 20px;
+}
+/* --- Price Table Modern Style --- */
+.price-table {
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: 'IRANSans', sans-serif;
+    direction: rtl;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    overflow-x: auto;
+}
+
+.price-table h2 {
+    text-align: center;
+    color: #1A4D2E;
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.price-table .price-note {
+    text-align: center;
+    font-size: 0.9em;
+    color: #333;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.price-table table {
+    width: 100%;
+    min-width: 600px; /* حداقل عرض جدول روی موبایل */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.price-table th,
+.price-table td {
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.price-table th {
+    background: rgba(106,156,128,0.85);
+    color: white;
+    font-weight: 700;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.price-table td {
+    background: rgba(255, 255, 255, 0.6);
+    color: #2b2b2b;
+}
+
+.price-table tbody tr {
+    border-radius: 12px;
+    margin-bottom: 6px;
+    display: table-row;
+}
+
+.price-table tbody tr:hover td {
+    background: rgba(106,156,128,0.2);
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .price-table th, 
+    .price-table td {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .price-table tbody tr:hover td {
+        transform: none; /* جلوه بزرگ شدن روی موبایل حذف می‌شود */
+        box-shadow: none;
+    }
+}
+     .center-text {
+    text-align: center;
   }
 
-  .skill, .contact-item {
-    flex: 1 1 100%;
-  }
+@media (min-width: 300px) {
+    .container {
+        width: 92%;
+        max-width: 1000px; /* حداکثر برای دسکتاپ */
+        margin: auto;
+    }
 }
 
-/* ==============================
-   اضافی برای فضای سفید و مینیمال
-============================== */
-section > *:not(h2) {
-  margin-bottom: 1rem;
-}
+</style>
+   <title>خرید ژل آلوئه ورا فوراور | اصل + ارسال سریع تهران و کرج</title>
+<meta name="description" content="ژل خالص آلوئه‌ورا فوراور لیوینگ اصل با ارسال سریع و ضمانت اصالت. مناسب پوست، سیستم ایمنی و انرژی بدن. دریافت مشاوره قبل خرید.">
 
-.portfolio-item h3, .portfolio-item p {
-  color: #003366;
-}
-
-.skill, .contact-item, .portfolio-item {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-  </style>
-  
-  
 </head>
-<body>
+<body><section id="product" class="product"> 
+    <div class="container">
 
-  <header>
-    <h1>گروه <strong>Sahand Apex</strong> به مدیریت <strong>سهند رنجبری‌پور</strong></h1>
-    <p>تأمین‌کننده و واردکننده عمده کالا برای کسب‌وکارها</p>
-  </header>
+        <article class="product__intro">
+            <header class="product__header">
+                <h1 class="product__title">واردکننده مستقیم محصولات فوراور در ایران: اصالت، کیفیت و سلامت</h1>
+            </header>
 
-  <main>
+            <figure class="product__image">
+                <img src="1000071153.png" alt="محصولات طبیعی فوراور">
+            </figure>
 
-    <!-- معرفی کوتاه -->
-    <section id="introduction">
-      <h2>معرفی کوتاه</h2>
-      <p>گروه <strong>Sahand Apex</strong> (<em>سهند رنجبری‌پور</em>) با تجربه عملی در تولید و واردات کالا، خدمات تأمین محصول و واردات عمده را برای کسب‌وکارها و فروشگاه‌ها ارائه می‌دهد. تمرکز این گروه بر ارائه راهکارهای <strong>قابل اعتماد و عملی برای بازار ایران</strong> است.</p>
-    </section>
+            <div class="product__description">
+                <p>با بیش از ۷ سال سابقه در واردات مستقیم محصولات فوراور، ما محصولات طبیعی و اورجینال این برند معتبر را به سراسر ایران ارائه می‌کنیم. تمامی محصولات فوراور با فرمولاسیون ویژه آلوئه‌ورای خالص تولید شده و فاقد مواد شیمیایی مضر هستند. هدف ما ارائه تجربه‌ای مطمئن و سالم برای تمامی خانواده‌ها است تا بتوانند از فواید واقعی محصولات طبیعی فوراور بهره‌مند شوند.</p>
+                <p>واردات ما مستقیماً از منابع معتبر در امارات متحده عربی و ترکیه انجام می‌شود و تضمین‌کننده اصالت، ایمنی و کیفیت محصولات است. ما با کنترل دقیق کیفیت، پشتیبانی حرفه‌ای و خدمات پس از فروش جامع، تجربه‌ای متفاوت از خرید محصولات طبیعی و اورجینال فوراور در ایران ایجاد کرده‌ایم.</p>
+            </div>
 
-    <!-- داستان شروع و تجربه -->
-    <section id="story">
-      <h2>داستان شروع و تجربه</h2>
-      <p>سهند رنجبری‌پور پس از مشاهده نیاز بازار به محصولات با کیفیت و دسترس‌پذیر، فعالیت خود را در زمینه تأمین ملزومات اداری و محصولات پت‌شاپ آغاز کرد. تجربه تولید داخلی و واردات مستقیم، پایه‌ای برای ارائه خدمات حرفه‌ای و قابل اعتماد شد.</p>
-    </section>
+<h2 class="product__subtitle">مزایای فروشگاه ما</h2>
+<ul class="product__features">
+    <li>واردات مستقیم و تضمین اصالت تمامی محصولات فوراور از منابع معتبر در امارات و ترکیه</li>
+    <li>محصولات اورجینال با بالاترین استانداردهای بین‌المللی، ایمن و مناسب برای استفاده روزانه خانواده‌ها</li>
+    <li>ارسال سریع و مطمئن به تهران و کرج، همراه با بسته‌بندی ایمن و تحویل به موقع</li>
+    <li>مشاوره تخصصی حضوری رایگان در تهران و کرج با تیم متخصصین فوراور</li>
+    <li>مشاوره مجازی برای مشتریان سراسر ایران، با پاسخگویی کامل و حرفه‌ای از طریق تماس تلفنی و آنلاین</li>
+    <li>امکان اقدام برای دریافت نمایندگی رسمی و فروش محصولات فوراور، همراه با آموزش و پشتیبانی کامل</li>
+    <li>فرصت تبدیل شدن به نماینده فروش ما و بهره‌مندی از مزایای همکاری مستقیم با واردکننده رسمی</li>
+</ul>
+        </article>
 
-    <!-- بخش ملزومات اداری -->
-    <section id="office-supplies">
-      <h2>ملزومات اداری (زونکن و وایت برد)</h2>
-      <p>برای فروشگاه‌ها و کسب‌وکارهایی که به دنبال <strong>ملزومات اداری با سفارش عمده</strong> هستند، گروه Sahand Apex امکان ارائه محصولات را با برند اختصاصی مشتری فراهم می‌کند:</p>
-      <ul>
-        <li>تولید محصولات با برند اختصاصی مشتری</li>
-        <li>سفارش عمده برای فروشگاه‌ها و مراکز اداری</li>
-        <li>راهکار عملی برای تأمین محصولات با کیفیت و قیمت مناسب</li>
-      </ul>
-      <p><a href="https://example.com/office-supplies" target="_blank" rel="noopener">برای سفارش و اطلاعات بیشتر اینجا کلیک کنید</a></p>
-    </section>
+        <article class="product__details">
+            <header class="product__header">
+                <h2 class="product__title">چرا محصولات فوراور را انتخاب کنیم؟</h2>
+            </header>
 
-    <!-- بخش محصولات پت‌شاپ -->
-    <section id="pet-shop">
-      <h2>محصولات پت‌شاپ</h2>
-      <p>برای فروشگاه‌های پت‌شاپ و کسب‌وکارهایی که نیاز به <strong>محصولات حیوانات خانگی</strong> دارند، گروه Sahand Apex به‌عنوان واردکننده محصولات، امکان ارائه آن‌ها را با برند اختصاصی مشتری در صورت سفارش عمده فراهم می‌کند:</p>
-      <ul>
-        <li>واردات محصولات با برند مشتری (در صورت سفارش عمده)</li>
-        <li>همکاری B2B و ارائه محصولات به فروشگاه‌ها</li>
-        <li>امکان نمایندگی محصولات برای کسب‌وکارهای علاقه‌مند</li>
-      </ul>
-      <p><a href="https://example.com/pet-shop" target="_blank" rel="noopener">برای سفارش و اطلاعات بیشتر اینجا کلیک کنید</a></p>
-    </section>
+            <div class="product__highlight">
+                <p>محصولات فوراور با ترکیبات طبیعی و آلوئه‌ورای خالص، سلامت و زیبایی شما را تضمین می‌کنند. ما به کیفیت، اصالت و اثرگذاری واقعی محصولات خود متعهد هستیم و اطمینان داریم که خرید از ما تجربه‌ای ایمن و مطمئن از محصولات طبیعی فوراور را برای شما فراهم می‌کند.</p>
+            </div>
 
-    <!-- فلسفه کاری -->
-    <section id="philosophy">
-      <h2>چشم‌انداز و فلسفه کاری</h2>
-      <p>کیفیت و اعتماد نتیجه مسیر درست و پیگیری مستمر است. این اصل محور تمامی فعالیت‌های گروه <strong>Sahand Apex</strong> است و باعث می‌شود هر فرآیند تأمین و واردات <strong>B2B</strong> مطمئن و قابل اعتماد اجرا شود. سهند رنجبری‌پور با توجه به تجربه عملی خود، رویکردی سیستماتیک و عملی در مدیریت کسب‌وکار دارد.</p>
-    </section>
+            <h3>توضیحات تکمیلی</h3>
+            <div class="product__extra-info">
+              <p>محصولات فوراور مناسب استفاده روزانه تمامی اعضای خانواده هستند و با استانداردهای بین‌المللی تولید شده‌اند. ما با واردات مستقیم از امارات و ترکیه و حذف واسطه‌ها، تجربه‌ای ایمن و مطمئن از خرید محصولات اورجینال فراهم کرده‌ایم.</p>
+              <p>تیم پشتیبانی ما آماده پاسخگویی به سوالات شما و ارائه مشاوره تخصصی درباره استفاده از محصولات است. هدف ما این است که مشتریان بتوانند با اطمینان کامل از کیفیت و اصالت، تجربه‌ای راحت و سریع از خرید محصولات فوراور در تهران، کرج و سراسر ایران داشته باشند.</p>
+             </div>
+             <h3>چگونه می‌توانید نماینده فروش فوراور شوید؟</h3>
+             <div class="product__extra-info">
+              <p>اگر علاقه‌مند به فعالیت در حوزه محصولات طبیعی و اورجینال فوراور هستید، می‌توانید به راحتی نماینده فروش ما شوید. این فرصت برای کسانی که در تهران، کرج یا شهرهای اطراف هستند فراهم است و همچنین مشتریان سایر شهرها می‌توانند به صورت مجازی از مزایای نمایندگی بهره‌مند شوند.</p>
+              <p>نمایندگان ما برای آموزش حضوری به محل شما مراجعه می‌کنند و تمام نکات لازم برای فروش و معرفی محصولات فوراور را به صورت عملی آموزش می‌دهند. همچنین امکان دریافت آموزش‌ها به صورت مجازی نیز وجود دارد تا حتی از راه دور بتوانید با اطمینان فعالیت خود را آغاز کنید.</p>
+              <p>برای کسب اطلاعات دقیق‌تر و آگاهی از مراحل دریافت نمایندگی فوراور، کافی است با ما تماس بگیرید تا تیم کارشناسان ما شما را راهنمایی کنند و پاسخگوی تمامی سوالاتتان باشند.</p>
+             </div>
+              
 
-    <!-- Bio و Tagline برای موتورهای جستجو -->
-    <section id="bio">
-      <h2>نسخه کوتاه (Bio)</h2>
-      <p>سهند اپکس (Sahand Apex) با مدیریت سهند رنجبری‌پور، تامین‌کننده و واردکننده محصولات B2B در حوزه ملزومات اداری و پت‌شاپ برای کسب‌وکارها.</p>
 
-      <h2>نسخه بسیار کوتاه (Tagline)</h2>
-      <p>سهند اپکس – واردات و تأمین محصولات B2B با برند اختصاصی.</p>
-    </section>
+            <p class="product__cta-text">همین حالا برای دریافت مشاوره تخصصی و تجربه‌ای متفاوت از سلامت و زیبایی، با کارشناسان ما تماس بگیرید.</p>
 
-  </main>
+            <footer class="product__contact">
+                <span class="contact__label">مشاوره و پشتیبانی:</span>
+                <a class="contact__phone" href="tel:+989124243347">تماس تلفنی</a>
+               
+            </footer>
+        </article>
 
-  <footer>
-    <p>— گروه <strong>Sahand Apex</strong> به مدیریت <strong>سهند رنجبری‌پور</strong></p>
-  </footer>
+    </div>
+</section>
 
-  <!-- Schema JSON-LD برای AboutPage -->
-  <script>
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<section id="price-list" class="price-table">
+<h2 class="center-text">لیست قیمت محصولات فوراور</h2>
+<p class="price-note center-text">قیمت‌ها به‌صورت روزانه براساس نرخ درهم به‌روزرسانی می‌شوند.</p>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>نام محصول</th>
+        <th>کاربرد</th>
+        <th>قیمت (تومان)</th>
+        
+      </tr>
+    </thead>
+    <tbody id="product-table-body"></tbody>
+  </table>
+</section>
+   
+<script>
+   
+</script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@context": "https://schema.org/",
+  "@type": "ItemList",
+  "itemListElement": [
+
     {
-      "@type": "AboutPage",
-      "@id": "https://example.com/about",
-      "url": "https://example.com/about",
-      "name": "صفحه معرفی | گروه Sahand Apex به مدیریت سهند رنجبری‌پور",
-      "description": "Sahand Apex به مدیریت سهند رنجبری‌پور: تأمین‌کننده ملزومات اداری و محصولات پت‌شاپ با سفارش عمده و برند اختصاصی برای کسب‌وکارها.",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Sahand Apex",
-        "url": "https://example.com",
-        "logo": "https://example.com/images/logo.png",
-        "founder": {
-          "@type": "Person",
-          "name": "سهند رنجبری‌پور",
-          "jobTitle": "مدیریت و واردکننده B2B"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/sahandranjbaripour",
-          "https://www.instagram.com/sahandapex"
-        ],
-        "department": [
-          {
-            "@type": "Organization",
-            "name": "بخش ملزومات اداری",
-            "description": "تولید و تأمین زونکن و وایت برد با برند اختصاصی مشتری و سفارش عمده برای کسب‌وکارها."
-          },
-          {
-            "@type": "Organization",
-            "name": "بخش محصولات پت‌شاپ",
-            "description": "واردات محصولات حیوانات خانگی و ارائه با برند اختصاصی مشتری در سفارش عمده، همکاری B2B و امکان نمایندگی."
-          }
-        ]
-      }
+      "@type": "Product",
+      "name": "ژل نوشیدنی آلوئه‌ورا فوراور (Forever Aloe Vera Gel®)",
+      "description": "ژل خالص آلوئه‌ورا برای پاکسازی بدن، بهبود گوارش و تقویت سیستم ایمنی.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "22.80", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
     },
+
     {
-      "@type": "Person",
-      "name": "سهند رنجبری‌پور",
-      "jobTitle": "مدیریت و واردکننده B2B",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "Sahand Apex"
-      },
-      "url": "https://example.com/about"
+      "@type": "Product",
+      "name": "ژل آلوئه‌ورا با عصاره توت فوراور (Forever Aloe Berry Nectar®)",
+      "description": "ترکیبی از آلوئه‌ورا، کرن‌بری و سیب برای سلامت گوارش و مجاری ادراری.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "22.80", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "خمیردندان فوراور برایت (Forever Bright® Toothgel)",
+      "description": "خمیردندان بدون فلوراید با پایه آلوئه‌ورا مناسب لثه‌های حساس.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "8.34", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "ژل ترمیم‌کننده پوست آلوئه‌ورا (Aloe Vera Gelly)",
+      "description": "ژل آرام‌بخش و ترمیم‌کننده مناسب سوختگی‌ها، التهاب و خشکی پوست.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "14.51", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "بالم لب آلوئه‌ورا فوراور (Forever Aloe Lips®)",
+      "description": "مرطوب‌کننده و ترمیم‌کننده لب حاوی آلوئه‌ورا و جوجوبا.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "3.80", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "لوسیون گرم‌کننده آلوئه‌ورا (Aloe Heat Lotion)",
+      "description": "کرم ماساژ برای تسکین درد عضلات و رفع خستگی.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "14.51", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "مام دئودورانت آلوئه‌ورا (Aloe Ever-Shield®)",
+      "description": "دئودورانت بدون آلومینیوم و ضد حساسیت مناسب استفاده روزانه.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "7.86", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "مکمل امگا ۳ فوراور Arctic Sea®",
+      "description": "حاوی DHA و EPA جهت سلامت قلب، مغز و مفاصل.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "31.23", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "ویتامین C فوراور (Forever Absorbent-C®)",
+      "description": "ویتامین C با جذب بالا برای تقویت سیستم ایمنی و افزایش انرژی.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "17.47", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "مکمل تقویت ایمنی فوراور (Forever ImmuBlend®)",
+      "description": "کمک به بهبود عملکرد ایمنی و افزایش مقاومت بدن.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "22.88", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@type": "Product",
+      "name": "صابون آلوئه‌ورا و آووکادو (Aloe Avocado Face & Body Soap)",
+      "description": "صابون مرطوب‌کننده پوست بدن و صورت با عصاره آووکادو و آلوئه‌ورا.",
+      "brand": { "@type": "Brand", "name": "Forever Living" },
+      "offers": { "@type": "Offer", "price": "6.62", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
     }
+
   ]
+}
+   </script>
+   <script>
+     const exchangeRate = 21210; // نرخ درهم → می‌توان بعداً تغییر داد
+  const products = [
+ 
+  {
+    "code": "015",
+    "name_en": "Aloe Vera Gel",
+    "name_fa": "نوشیدنی ژل خالص آلوئه ورا",
+    "weight": 0.113,
+    "price_toman": 3670127,
+    "price_aed": 123.52,
+    "description": "مناسب برای پاکسازی بدن و تقویت سیستم ایمنی"
+  },
+  {
+    "code": "022",
+    "name_en": "Aloe Lips",
+    "name_fa": "لیپس",
+    "weight": 0.016,
+    "price_toman": 524440,
+    "price_aed": 17.67,
+    "description": "مرطوب‌کننده و محافظت از لب‌ها"
+  },
+  {
+    "code": "026",
+    "name_en": "Forever Bee Pollen (100 tablet)",
+    "name_fa": "بی پولن",
+    "weight": 0.068,
+    "price_toman": 2216672,
+    "price_aed": 74.72,
+    "description": "تقویت سیستم ایمنی و انرژی بدن"
+  },
+  {
+    "code": "027",
+    "name_en": "Forever Bee Propolis (60 tablet)",
+    "name_fa": "بی پروپلیس",
+    "weight": 0.143,
+    "price_toman": 4630469,
+    "price_aed": 155.81,
+    "description": "حمایت از سلامت بدن و ضد التهاب طبیعی"
+  },
+  {
+    "code": "028",
+    "name_en": "Forever Bright Toothgel",
+    "name_fa": "خمیر دندان فوراور",
+    "weight": 0.035,
+    "price_toman": 1115607,
+    "price_aed": 37.57,
+    "description": "مناسب برای سلامت لثه‌ها و سفید کنندگی دندان‌ها"
+  },
+  {
+    "code": "032",
+    "name_en": "DREAM BY FOREVER",
+    "name_fa": "اسپری بدن زنانه دریم",
+    "weight": 0.026,
+    "price_toman": 852733,
+    "price_aed": 28.71,
+    "description": "اسپری خوشبو و مرطوب‌کننده بدن"
+  },
+  {
+    "code": "033",
+    "name_en": "DESIRE BY FOREVER",
+    "name_fa": "اسپری بدن مردانه دزایر",
+    "weight": 0.026,
+    "price_toman": 852733,
+    "price_aed": 28.71,
+    "description": "اسپری خوشبو و انرژی‌بخش برای آقایان"
+  },
+  {
+    "code": "034",
+    "name_en": "Aloe Berry Nectar",
+    "name_fa": "نکتار بری",
+    "weight": 0.113,
+    "price_toman": 3670389,
+    "price_aed": 123.53,
+    "description": "مناسب برای گوارش و افزایش انرژی"
+  },
+  {
+    "code": "036",
+    "name_en": "Forever Royal Jelly (60 tablet)",
+    "name_fa": "رویال ژلی",
+    "weight": 0.148,
+    "price_toman": 4785996,
+    "price_aed": 161.13,
+    "description": "تقویت قوای عمومی و انرژی بدن"
+  },
+  {
+    "code": "037",
+    "name_en": "Nature-Min",
+    "name_fa": "نیچرمین املاح معدنی",
+    "weight": 0.081,
+    "price_toman": 2633957,
+    "price_aed": 88.77,
+    "description": "مکمل تامین املاح معدنی مورد نیاز بدن"
+  }
+,
+  {
+    "code": "040",
+    "name_en": "Aloe First Spray",
+    "name_fa": "فرست اسپری",
+    "weight": 0.089,
+    "price_toman": 2877416,
+    "price_aed": 96.91,
+    "description": "اسپری ضد التهاب و آرام‌بخش پوست"
+  },
+  {
+    "code": "048",
+    "name_en": "Forever Absorbent-C (100 tablet)",
+    "name_fa": "فوراور ویتامین سی و جو دوسر",
+    "weight": 0.079,
+    "price_toman": 2458101,
+    "price_aed": 82.77,
+    "description": "تقویت سیستم ایمنی و افزایش انرژی"
+  },
+  {
+    "code": "051",
+    "name_en": "Aloe Propolis Creme",
+    "name_fa": "پروپلیس کرم",
+    "weight": 0.089,
+    "price_toman": 2877416,
+    "price_aed": 96.91,
+    "description": "مناسب برای ترمیم و مراقبت از پوست"
+  },
+  {
+    "code": "061",
+    "name_en": "Aloe Vera Gelly",
+    "name_fa": "آلوئه ورا ژلی",
+    "weight": 0.067,
+    "price_toman": 2161120,
+    "price_aed": 72.75,
+    "description": "آرام‌بخش و ترمیم‌کننده پوست"
+  },
+  {
+    "code": "063",
+    "name_en": "Aloe Moisturising Lotion",
+    "name_fa": "مویسچرایزینگ-مرطوب کننده",
+    "weight": 0.067,
+    "price_toman": 2161120,
+    "price_aed": 72.75,
+    "description": "مرطوب‌کننده و تغذیه‌کننده پوست"
+  },
+  {
+    "code": "064",
+    "name_en": "Aloe Heat Lotion",
+    "name_fa": "آلوئه هیت لوشن",
+    "weight": 0.067,
+    "price_toman": 2161120,
+    "price_aed": 72.75,
+    "description": "کرم ماساژ برای تسکین درد عضلات"
+  },
+  {
+    "code": "065",
+    "name_en": "Garlic Thyme",
+    "name_fa": "گارلیک تایم سیر و آویشن",
+    "weight": 0.081,
+    "price_toman": 2633994,
+    "price_aed": 88.77,
+    "description": "مکمل گیاهی برای بهبود ایمنی و گوارش"
+  },
+  {
+    "code": "067",
+    "name_en": "Forever Evershield",
+    "name_fa": "مام فوراور",
+    "weight": 0.035,
+    "price_toman": 1216397,
+    "price_aed": 40.92,
+    "description": "دئودورانت بدون آلومینیوم و ضد حساسیت"
+  },
+  {
+    "code": "068L",
+    "name_en": "Fields Of Greens (80 tablet)",
+    "name_fa": "فیلدز او گرینز مکمل سبزیجات",
+    "weight": 0.054,
+    "price_toman": 1743971,
+    "price_aed": 58.70,
+    "description": "مکمل سبزیجات و تامین ویتامین‌های روزانه"
+  },
+  {
+    "code": "069",
+    "name_en": "R-3 Factor",
+    "name_fa": "کرم آر تری فکتور-ترمیم و نوسازی پوست",
+    "weight": 0.148,
+    "price_toman": 4785996,
+    "price_aed": 161.13,
+    "description": "ترمیم و بازسازی سلول‌های پوستی"
+  },
+  {
+    "code": "071L",
+    "name_en": "Garcinia Plus",
+    "name_fa": "فوراور گارسینیا پلاس-مکمل کاهش اشتها",
+    "weight": 0.148,
+    "price_toman": 4795077,
+    "price_aed": 161.51,
+    "description": "مکمل کاهش اشتها و کمک به کنترل وزن"
+  },
+  {
+    "code": "075",
+    "name_en": "Nutrition Mini Combo",
+    "name_fa": "تغذیه ترکیبی کوچک",
+    "weight": 1,
+    "price_toman": 31234483,
+    "price_aed": 1052.62,
+    "description": "پکیج تغذیه کامل و متعادل برای روزانه"
+  },
+  {
+    "code": "076",
+    "name_en": "Skin Care Mini Combo",
+    "name_fa": "پک مراقبت از پوست",
+    "weight": 1,
+    "price_toman": 31234483,
+    "price_aed": 1052.62,
+    "description": "پکیج مراقبت از پوست شامل ژل و لوشن"
+  },
+  {
+    "code": "082",
+    "name_en": "FOREVER BHRINGRAJ HAIR OIL",
+    "name_fa": "روغن موی بهرینگراج",
+    "weight": 0.05,
+    "price_toman": 1619697,
+    "price_aed": 54.53,
+    "description": "مناسب برای تقویت و رشد مو"
+  },
+  {
+    "code": "187",
+    "name_en": "Alpha E Factor",
+    "name_fa": "آلفا-ای فاکتور-ترمیم کننده و ضد چروک پوست",
+    "weight": 0.148,
+    "price_toman": 4785996,
+    "price_aed": 161.13,
+    "description": "ضد چروک و ترمیم کننده پوست"
+  },
+  {
+    "code": "188",
+    "name_en": "Forever B 12 Plus (60 tablet)",
+    "name_fa": "بی 12 پلاس",
+    "weight": 0.069,
+    "price_toman": 2237471,
+    "price_aed": 75.33,
+    "description": "تقویت سیستم عصبی و افزایش انرژی"
+  },
+  {
+    "code": "196",
+    "name_en": "Forever Freedom",
+    "name_fa": "نوشیدنی فریدام",
+    "weight": 0.162,
+    "price_toman": 5240995,
+    "price_aed": 176.49,
+    "description": "نوشیدنی انرژی‌بخش و تقویت ایمنی"
+  },
+  {
+    "code": "200",
+    "name_en": "Aloe Blossom Herbal Tea (25 poset)",
+    "name_fa": "چای گیاهی آلوئه ورا-دمنوش شکوفه آلوئه ورا",
+    "weight": 0.079,
+    "price_toman": 2458101,
+    "price_aed": 82.77,
+    "description": "دمنوش آرام‌بخش و تقویت کننده سیستم گوارش"
+  },
+  {
+    "code": "205",
+    "name_en": "Aloe Msm Gel",
+    "name_fa": "آلو ام اس ام ژل",
+    "weight": 0.109,
+    "price_toman": 3517299,
+    "price_aed": 118.46,
+    "description": "ترمیم مفاصل و آرام‌بخش پوست"
+  },
+  {
+    "code": "206L",
+    "name_en": "Forever Calcium",
+    "name_fa": "کلسیم دی",
+    "weight": 0.109,
+    "price_toman": 3517923,
+    "price_aed": 118.48,
+    "description": "مکمل کلسیم و تقویت استخوان‌ها"
+  }
+,
+  {
+    "code": "207",
+    "name_en": "Forever Bee Honey",
+    "name_fa": "عسل",
+    "weight": 0.075,
+    "price_toman": 2458966,
+    "price_aed": 82.78,
+    "description": "عسل خالص طبیعی فوراور"
+  },
+  {
+    "code": "215L",
+    "name_en": "Forever Multi Maca",
+    "name_fa": "فوراور مولتی ماکا",
+    "weight": 0.118,
+    "price_toman": 3825766,
+    "price_aed": 128.85,
+    "description": "مکمل تقویت انرژی و سلامت عمومی (تمام شد)"
+  },
+  {
+    "code": "234",
+    "name_en": "Forever Marine Mask",
+    "name_fa": "فوراور مارین ماسک-ماسک دریایی",
+    "weight": 0.101,
+    "price_toman": 3148963,
+    "price_aed": 105.96,
+    "description": "ماسک تغذیه‌کننده و مرطوب‌کننده پوست"
+  },
+  {
+    "code": "238",
+    "name_en": "Aloe Scrub",
+    "name_fa": "آلوئه اسکراب",
+    "weight": 0.07,
+    "price_toman": 2275647,
+    "price_aed": 76.64,
+    "description": "اسکراب ملایم و لایه‌بردار پوست"
+  },
+  {
+    "code": "284",
+    "name_en": "Avacado Face & Body Soap",
+    "name_fa": "صابون صورت و بدن آواکادو+آلوئه ورا",
+    "weight": 0.034,
+    "price_toman": 1101943,
+    "price_aed": 37.09,
+    "description": "صابون مغذی و نرم‌کننده پوست"
+  },
+  {
+    "code": "289",
+    "name_en": "Forever Lean",
+    "name_fa": "فوراور لین-مکمل کاهش جذب کالری",
+    "weight": 0.208,
+    "price_toman": 6735171,
+    "price_aed": 226.71,
+    "description": "کمک به کنترل وزن و کاهش جذب کالری"
+  },
+  {
+    "code": "307",
+    "name_en": "Forever Aloe MPD 2X",
+    "name_fa": "ام پی دی -شوینده چند منظوره",
+    "weight": 0.109,
+    "price_toman": 3392559,
+    "price_aed": 114.25,
+    "description": "شوینده چند منظوره با عصاره آلوئه"
+  },
+  {
+    "code": "312",
+    "name_en": "Forever CardioHealth",
+    "name_fa": "فوراور کاردیو هلث-مکمل سلامت قلب با کو آنزیم کیو ۱۰",
+    "weight": 0.15,
+    "price_toman": 4690068,
+    "price_aed": 157.88,
+    "description": "مکمل حمایت از سلامت قلب و گردش خون"
+  },
+  {
+    "code": "318",
+    "name_en": "Hand Sanitizer",
+    "name_fa": "ضد عفونی کننده دست",
+    "weight": 0.02,
+    "price_toman": 655968,
+    "price_aed": 22.08,
+    "description": "ضدعفونی‌کننده سریع و ایمن برای دست‌ها"
+  },
+  {
+    "code": "341",
+    "name_en": "Mask powder",
+    "name_fa": "پودر ماسک",
+    "weight": 0.095,
+    "price_toman": 3071281,
+    "price_aed": 103.45,
+    "description": "ماسک صورت تغذیه‌کننده (تمام شد)"
+  },
+  {
+    "code": "354L",
+    "name_en": "Forever Kids",
+    "name_fa": "فوراور کیدز",
+    "weight": 0.068,
+    "price_toman": 2190539,
+    "price_aed": 73.74,
+    "description": "مکمل ویتامینی برای کودکان"
+  },
+  {
+    "code": "355L",
+    "name_en": "Forever Immublend",
+    "name_fa": "فوراور ایموبلند",
+    "weight": 0.118,
+    "price_toman": 3824269,
+    "price_aed": 128.81,
+    "description": "تقویت سیستم ایمنی بدن"
+  },
+  {
+    "code": "374L",
+    "name_en": "Vitolize-Men",
+    "name_fa": "ویتولایز آقایان",
+    "weight": 0.136,
+    "price_toman": 4535630,
+    "price_aed": 152.81,
+    "description": "مکمل سلامت آقایان (تمام شد)"
+  },
+  {
+    "code": "375L",
+    "name_en": "Vitolize-Women",
+    "name_fa": "ویتولایز بانوان",
+    "weight": 0.143,
+    "price_toman": 5481545,
+    "price_aed": 184.54,
+    "description": "مکمل سلامت بانوان (تمام شد)"
+  },
+  {
+    "code": "376L",
+    "name_en": "Forever Arctic Sea",
+    "name_fa": "فوراور امگا 3",
+    "weight": 0.143,
+    "price_toman": 4783787,
+    "price_aed": 161.10,
+    "description": "مکمل امگا ۳ و سلامت قلب"
+  },
+  {
+    "code": "439",
+    "name_en": "Forever Daily",
+    "name_fa": "فوراور دیلی",
+    "weight": 0.09,
+    "price_toman": 2820839,
+    "price_aed": 95.01,
+    "description": "مکمل ویتامینی روزانه (تمام شد)"
+  }
+,
+  {
+    "code": "456",
+    "name_en": "VITAL5/ALOE VERA GEL",
+    "name_fa": "بسته حیاتی ویتال 5 با نوشیدنی خالص آلوئه ورا",
+    "weight": 1.148,
+    "price_toman": 35867784,
+    "price_aed": 1207.44,
+    "description": "بسته ترکیبی ویتامین‌ها و نوشیدنی آلوئه ورا"
+  },
+  {
+    "code": "459",
+    "name_en": "VITAL5/FOREVER FREEDOM",
+    "name_fa": "بسته حیاتی ویتال 5 با نوشیدنی فریدام",
+    "weight": 1.34,
+    "price_toman": 41857238,
+    "price_aed": 1409.41,
+    "description": "بسته ترکیبی ویتامین‌ها و نوشیدنی فریدام"
+  },
+  {
+    "code": "463",
+    "name_en": "Forever Therm",
+    "name_fa": "فوراور ترم-مکمل چربی سوز",
+    "weight": 0.129,
+    "price_toman": 4166385,
+    "price_aed": 140.31,
+    "description": "مکمل کمک به چربی‌سوزی و کاهش وزن"
+  },
+  {
+    "code": "464",
+    "name_en": "Forever Fiber",
+    "name_fa": "فوراور فیبر",
+    "weight": 0.13,
+    "price_toman": 4344934,
+    "price_aed": 146.23,
+    "description": "مکمل فیبر غذایی (تمام شد)"
+  },
+  {
+    "code": "470",
+    "name_en": "LITE ULTRA-VANILLA(Pouch)",
+    "name_fa": "فوراور لایت اولترا - پودر پروتئین وانیلی همراه با آمینوتئین",
+    "weight": 0.138,
+    "price_toman": 4465861,
+    "price_aed": 150.38,
+    "description": "پودر پروتئین وانیلی برای تغذیه ورزشی"
+  },
+  {
+    "code": "471",
+    "name_en": "LITE ULTRA-CHOCO(Pouch)",
+    "name_fa": "فوراور لایت اولترا - پودر پروتئین شکلاتی همراه با آمینوتئین",
+    "weight": 0.138,
+    "price_toman": 4465861,
+    "price_aed": 150.38,
+    "description": "پودر پروتئین شکلاتی برای تغذیه ورزشی"
+  },
+  {
+    "code": "473",
+    "name_en": "ARG + PACKET/POUCH",
+    "name_fa": "آرجی پلاس پک",
+    "weight": 0.341,
+    "price_toman": 11061247,
+    "price_aed": 372.48,
+    "description": "مکمل آمینو اسید و انرژی‌زا"
+  },
+  {
+    "code": "475",
+    "name_en": "CLEAN 9 - VANILLA Pouch",
+    "name_fa": "سی ناین وانیلی-کلین ناین حاوی مکمل و فیبر یک ماهه",
+    "weight": 0.771,
+    "price_toman": 24086625,
+    "price_aed": 811.60,
+    "description": "برنامه پاکسازی و مکمل غذایی ۳۰ روزه"
+  },
+  {
+    "code": "476",
+    "name_en": "CLEAN 9 - CHOCOLATE Pouch",
+    "name_fa": "سی ناین شکلاتی-کلین ناین حاوی مکمل و فیبر یک ماهه",
+    "weight": 0.771,
+    "price_toman": 24086625,
+    "price_aed": 811.60,
+    "description": "برنامه پاکسازی و مکمل غذایی ۳۰ روزه (تمام شد)"
+  },
+  {
+    "code": "521",
+    "name_en": "ALOE JOJOBA SHAMPOO 2016",
+    "name_fa": "شامپو آلوئه-جوجوبا",
+    "weight": 0.079,
+    "price_toman": 2913636,
+    "price_aed": 98.05,
+    "description": "شامپو تغذیه‌کننده مو (تمام شد)"
+  },
+  {
+    "code": "522",
+    "name_en": "ALOE JOJOBA CONDITION RINSE",
+    "name_fa": "آلوئه-جوجوبا کاندیشنینگ - نرم کننده و تقویت کننده",
+    "weight": 0.079,
+    "price_toman": 2571131,
+    "price_aed": 86.51,
+    "description": "نرم‌کننده و تقویت‌کننده مو (تمام شد)"
+  }
+,
+  {
+    "code": "523",
+    "name_en": "ALOE HAND SOAP",
+    "name_fa": "صابون مایع دست آلوئه",
+    "weight": 0.759,
+    "price_toman": 4207934,
+    "price_aed": 141.65,
+    "description": "صابون مایع دست (تمام شد)"
+  },
+  {
+    "code": "528",
+    "name_en": "F15-BEGINNER 1&2-VANILLA",
+    "name_fa": "اف 15 - مبتدی ١ و ٢، وانیلی",
+    "weight": 0.69,
+    "price_toman": 21666248,
+    "price_aed": 729.24,
+    "description": "پودر پروتئین و مکمل غذایی برای شروع برنامه F15"
+  },
+  {
+    "code": "536",
+    "name_en": "F15-ADVANCED 1&2-VANILLA",
+    "name_fa": "اف 15 - پیشرفته ١ و ٢، وانیلی",
+    "weight": 0.69,
+    "price_toman": 21666248,
+    "price_aed": 729.24,
+    "description": "پودر پروتئین و مکمل غذایی پیشرفته F15"
+  },
+  {
+    "code": "547",
+    "name_en": "Clean 9 Vanilla with Innerpack",
+    "name_fa": "سی ناین وانیلی-کلین ناین ٩ روزه",
+    "weight": 0.598,
+    "price_toman": 19413121,
+    "price_aed": 653.29,
+    "description": "برنامه پاکسازی و مکمل غذایی ۹ روزه"
+  },
+  {
+    "code": "548",
+    "name_en": "Clean 9 Choco with Innerpack",
+    "name_fa": "سی ناین شکلاتی-کلین ناین ٩ روزه",
+    "weight": 0.598,
+    "price_toman": 19413121,
+    "price_aed": 653.29,
+    "description": "برنامه پاکسازی و مکمل غذایی ۹ روزه (تمام شد)"
+  },
+  {
+    "code": "551L",
+    "name_en": "FOREVER MOVE",
+    "name_fa": "فوراور موو",
+    "weight": 0.29,
+    "price_toman": 9467802,
+    "price_aed": 318.69,
+    "description": "مکمل ورزشی برای تحرک و انرژی"
+  },
+  {
+    "code": "559",
+    "name_en": "Exfoliator",
+    "name_fa": "اسموثینگ اکسفولیتور-لایه بردار صاف کننده تارگت",
+    "weight": 0.078,
+    "price_toman": 2555106,
+    "price_aed": 85.99,
+    "description": "لایه‌بردار پوست صورت"
+  },
+  {
+    "code": "560",
+    "name_en": "Balancing Toner",
+    "name_fa": "بالانسینگ تونر-تونر متعادل کننده تارگت",
+    "weight": 0.089,
+    "price_toman": 2913092,
+    "price_aed": 98.05,
+    "description": "تونر متعادل‌کننده پوست"
+  },
+  {
+    "code": "561",
+    "name_en": "Eye Cream",
+    "name_fa": "اویکنینگ آی کرم-رفع تیرگی و چین و چروک دور چشم تارگت",
+    "weight": 0.083,
+    "price_toman": 2710633,
+    "price_aed": 91.27,
+    "description": "کرم دور چشم رفع تیرگی و چین و چروک"
+  },
+  {
+    "code": "566",
+    "name_en": "Forever immune Gummy",
+    "name_fa": "ایمونه گامی",
+    "weight": 0.148,
+    "price_toman": 4797023,
+    "price_aed": 161.53,
+    "description": "قرص جویدنی تقویت سیستم ایمنی"
+  },
+  {
+    "code": "605",
+    "name_en": "Cleansing Gel",
+    "name_fa": "رفرشینگ ژل کلینزر سونیا-ژل پاک کننده و طراوت بخش",
+    "weight": 0.103,
+    "price_toman": 3323659,
+    "price_aed": 111.93,
+    "description": "ژل پاک‌کننده و طراوت‌بخش پوست"
+  },
+  {
+    "code": "606",
+    "name_en": "Illuminating Gel",
+    "name_fa": "ایلومینیتینگ ژل سونیا-ژل شفاف کننده و ضدلک",
+    "weight": 0.098,
+    "price_toman": 3168132,
+    "price_aed": 106.68,
+    "description": "ژل شفاف‌کننده و ضد لک پوست"
+  }
+,
+  {
+    "code": "607",
+    "name_en": "Refining Gel Mask",
+    "name_fa": "ریفاینینگ ژل ماسک سونیا - ژل ماسک ترمیم و پاکسازی",
+    "weight": 0.103,
+    "price_toman": 3323659,
+    "price_aed": 111.93,
+    "description": "ژل ماسک ترمیم و پاکسازی پوست"
+  },
+  {
+    "code": "608",
+    "name_en": "Soothing Gel Moisturizer",
+    "name_fa": "سوفینگ ژل مویسچرایزر سونیا - ژل مرطوب کننده و تسکین دهنده",
+    "weight": 0.112,
+    "price_toman": 3623456,
+    "price_aed": 121.95,
+    "description": "ژل مرطوب‌کننده و تسکین‌دهنده پوست"
+  },
+  {
+    "code": "609",
+    "name_en": "Sonya Skin System Pack",
+    "name_fa": "پکیج مراقبت پوست روزانه سونیا",
+    "weight": 0.356,
+    "price_toman": 13288532,
+    "price_aed": 447.12,
+    "description": "پکیج مراقبت روزانه پوست (تمام شد)"
+  },
+  {
+    "code": "610",
+    "name_en": "New Active Pro",
+    "name_fa": "فوراور اکتیو پروبیوتیک",
+    "weight": 0.157,
+    "price_toman": 5085468,
+    "price_aed": 171.11,
+    "description": "پروبیوتیک و مکمل سلامت دستگاه گوارش"
+  },
+  {
+    "code": "612",
+    "name_en": "Activator",
+    "name_fa": "لوئه اکتیویتور جدید-مایع فعال ساز",
+    "weight": 0.066,
+    "price_toman": 2197638,
+    "price_aed": 74.03,
+    "description": "مایع فعال‌ساز مکمل‌ها"
+  },
+  {
+    "code": "613",
+    "name_en": "Forever Marine Collagen",
+    "name_fa": "مارین کلاژن فوراور ساشه نوشیدنی کلاژن دریایی",
+    "weight": 0.327,
+    "price_toman": 10595376,
+    "price_aed": 356.62,
+    "description": "نوشیدنی کلاژن دریایی برای پوست و مفاصل"
+  },
+  {
+    "code": "616",
+    "name_en": "Bio-Cellulose Mask",
+    "name_fa": "ماسک آلوئه بیو سلولز",
+    "weight": 0.232,
+    "price_toman": 7233008,
+    "price_aed": 243.33,
+    "description": "ماسک آبرسان و ترمیم‌کننده پوست"
+  },
+  {
+    "code": "617",
+    "name_en": "new sunscreen cream",
+    "name_fa": "ضد آفتاب-جدید",
+    "weight": 0.083,
+    "price_toman": 3405459,
+    "price_aed": 114.70,
+    "description": "کرم ضد آفتاب با محافظت بالا"
+  },
+  {
+    "code": "618",
+    "name_en": "Hydrating Serum",
+    "name_fa": "هیدراتینگ سرم فوراور-سرم آبرسان قوی",
+    "weight": 0.144,
+    "price_toman": 4650807,
+    "price_aed": 156.56,
+    "description": "سرم آبرسان قوی پوست"
+  },
+  {
+    "code": "621",
+    "name_en": "Supergreens",
+    "name_fa": "سوپر گرینز پودر سبزیجات فوراور",
+    "weight": 0.154,
+    "price_toman": 4863166,
+    "price_aed": 163.68,
+    "description": "پودر سبزیجات انرژی‌زا (تمام شد)"
+  },
+  {
+    "code": "622",
+    "name_en": "Forever Focus",
+    "name_fa": "فوراور فوکاس",
+    "weight": 0.354,
+    "price_toman": 11467368,
+    "price_aed": 385.90,
+    "description": "مکمل تمرکز و انرژی ذهنی"
+  },
+  {
+    "code": "624",
+    "name_en": "I vision",
+    "name_fa": "آی ویژن",
+    "weight": 0.142,
+    "price_toman": 4735407,
+    "price_aed": 159.33,
+    "description": "مکمل سلامت چشم"
+  },
+  {
+    "code": "633",
+    "name_en": "Aloe Liquid Soap (New)",
+    "name_fa": "صابون مایع جدید",
+    "weight": 0.088,
+    "price_toman": 2850592,
+    "price_aed": 95.99,
+    "description": "صابون مایع آلوئه ورا جدید"
+  },
+  {
+    "code": "634",
+    "name_en": "Start Your Journey Pack",
+    "name_fa": "پک استارتر",
+    "weight": 1.5,
+    "price_toman": 47190393,
+    "price_aed": 1587.02,
+    "description": "پک شروع برنامه سلامت و مکمل"
+  },
+  {
+    "code": "640",
+    "name_en": "New Jojoba Shampoo",
+    "name_fa": "شامپو جوجوبا جدید",
+    "weight": 0.09,
+    "price_toman": 2915268,
+    "price_aed": 97.99,
+    "description": "شامپو جوجوبا جدید برای مو"
+  },
+  {
+    "code": "641",
+    "name_en": "New Jojoba Conditioner",
+    "name_fa": "نرم کننده جوجوبا جدید",
+    "weight": 0.097,
+    "price_toman": 3137092,
+    "price_aed": 105.61,
+    "description": "نرم‌کننده مو با جوجوبا"
+  },
+  {
+    "code": "642",
+    "name_en": "FOREVER NOURISHING HAIR OIL",
+    "name_fa": "روغن مغذی مو",
+    "weight": 0.111,
+    "price_toman": 3594960,
+    "price_aed": 120.97,
+    "description": "روغن مغذی و تقویت‌کننده مو"
+  },
+  {
+    "code": "646",
+    "name_en": "Aloe Body Wash",
+    "name_fa": "آلو بادی واش-شامپو بدن گیاهی",
+    "weight": 0.107,
+    "price_toman": 3468578,
+    "price_aed": 116.74,
+    "description": "شامپو بدن گیاهی با آلوئه ورا"
+  }
+,
+  {
+    "code": "647",
+    "name_en": "Aloe Body Lotion",
+    "name_fa": "لوسیون بدن آلوئه ورا",
+    "weight": 0.107,
+    "price_toman": 3468578,
+    "price_aed": 116.74,
+    "description": "لوسیون بدن با آلوئه ورا برای نرم‌کنندگی و رطوبت پوست"
+  },
+  {
+    "code": "656",
+    "name_en": "Forever Plant Protein (390 g)",
+    "name_fa": "پلنت پروتئین -گیاهی",
+    "weight": 0.229,
+    "price_toman": 7170622,
+    "price_aed": 241.50,
+    "description": "پودر پروتئین گیاهی برای تغذیه و افزایش انرژی"
+  },
+  {
+    "code": "659",
+    "name_en": "DX4 PAK PRICELIST",
+    "name_fa": "پکیج dx4 فوراور-برنامه 4 روزه",
+    "weight": 0.629,
+    "price_toman": 19647326,
+    "price_aed": 661.32,
+    "description": "پکیج مکمل‌ها و برنامه 4 روزه سلامت و انرژی"
+  },
+  {
+    "code": "676",
+    "name_en": "Forever Aloe Turm",
+    "name_fa": "آلوئه تورم فوراور",
+    "weight": 0.026,
+    "price_toman": 843424,
+    "price_aed": 28.38,
+    "description": "نوشیدنی ژل آلوئه ورا با ترکیب تورم طبیعی"
+  },
+  {
+    "code": "716",
+    "name_en": "Forever Aloe Vera Gel Mini 330ml",
+    "name_fa": "نوشیدنی ژل خالص آلوئه ورا ۳۳۰ میلی لیتر",
+    "weight": 0.039,
+    "price_toman": 1215170,
+    "price_aed": 40.89,
+    "description": "نسخه کوچک نوشیدنی ژل آلوئه ورا برای مصرف روزانه"
+  },
+  {
+    "code": "71612",
+    "name_en": "Forever Aloe Vera Gel Mini 330ml (pk of 12)",
+    "name_fa": "نوشیدنی ژل خالص آلوئه ورا ۳۳۰ میلی لیتر پک ۱۲ تایی",
+    "weight": 0.468,
+    "price_toman": 14604498,
+    "price_aed": 491.62,
+    "description": "پک ۱۲ عددی نوشیدنی ژل آلوئه ورا برای مصرف طولانی مدت"
+  }
+]
+
+
+   
+
+</script>
+<script>
+const tableBody = document.getElementById('product-table-body');
+
+// پاک کردن جدول قبل از ساخت (جلوگیری از تکرار)
+
+// اطمینان از اینکه products تعریف شده
+if (Array.isArray(products)) {
+  products.forEach(product => {
+
+    // محاسبه قیمت به تومان از AED
+    const price_toman = Math.round(product.price_aed * exchangeRate);
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${product.name_fa}</td>
+      <td>${product.description}</td>
+      <td>${price_toman.toLocaleString()} تومان</td>
+    `;
+
+    tableBody.appendChild(row);
+  });
+} else {
+  console.error("❌ متغیر products پیدا نشد. مطمئن شو فایل محصولات قبل از این اسکریپت لود شده.");
 }
 </script>
 
+
+
+
+
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
