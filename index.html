@@ -1283,16 +1283,20 @@ body {
 
 </script>
 <script>
+const exchangeRate = 21210; // نرخ درهم
 const tableBody = document.getElementById('product-table-body');
 
-products.forEach(product => {
-    const row = document.createElement('tr');
+// ابتدا جدول را خالی می‌کنیم تا تکراری نشود
+tableBody.innerHTML = "";
 
+products.forEach(product => {
+    const price_toman = product.price_aed * exchangeRate;
+
+    const row = document.createElement('tr');
     row.innerHTML = `
         <td>${product.name_fa}</td>
         <td>${product.description}</td>
-        <td>${product.price_toman.toLocaleString()}</td>
-      
+        <td>${price_toman.toLocaleString()} تومان</td>
     `;
 
     tableBody.appendChild(row);
@@ -1302,8 +1306,10 @@ products.forEach(product => {
 
 
 
+
 </body>
 </html>
+
 
 
 
