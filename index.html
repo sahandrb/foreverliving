@@ -1286,22 +1286,30 @@ body {
 const exchangeRate = 21210; // نرخ درهم
 const tableBody = document.getElementById('product-table-body');
 
-// ابتدا جدول را خالی می‌کنیم تا تکراری نشود
+// پاک کردن جدول قبل از ساخت (جلوگیری از تکرار)
 tableBody.innerHTML = "";
 
-products.forEach(product => {
-    const price_toman = product.price_aed * exchangeRate;
+// اطمینان از اینکه products تعریف شده
+if (Array.isArray(products)) {
+  products.forEach(product => {
+
+    // محاسبه قیمت به تومان از AED
+    const price_toman = Math.round(product.price_aed * exchangeRate);
 
     const row = document.createElement('tr');
     row.innerHTML = `
-        <td>${product.name_fa}</td>
-        <td>${product.description}</td>
-        <td>${price_toman.toLocaleString()} تومان</td>
+      <td>${product.name_fa}</td>
+      <td>${product.description}</td>
+      <td>${price_toman.toLocaleString()} تومان</td>
     `;
 
     tableBody.appendChild(row);
-});
+  });
+} else {
+  console.error("❌ متغیر products پیدا نشد. مطمئن شو فایل محصولات قبل از این اسکریپت لود شده.");
+}
 </script>
+
 
 
 
@@ -1309,6 +1317,7 @@ products.forEach(product => {
 
 </body>
 </html>
+
 
 
 
