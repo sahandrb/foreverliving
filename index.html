@@ -1294,25 +1294,13 @@ products.forEach(product => {
     tableBody.appendChild(row);
 });
 </script>
-<script>
-const tbody = document.getElementById('product-table-body');
 
-products.forEach(product => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `
-    <td>${product.code}</td>
-    <td>${product.name_fa}</td>
-    <td>${product.description}</td>
-    <td>${product.price_toman.toLocaleString()}</td>
-  `;
-  tbody.appendChild(tr);
-});
-</script>
 
 
 
 </body>
 </html>
+
 
 
 
